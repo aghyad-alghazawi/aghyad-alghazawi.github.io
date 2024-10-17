@@ -1,11 +1,24 @@
-import type { Metadata } from "next"
-import { Inter, Montserrat } from "next/font/google"
+import type { Metadata } from "next";
+import { Inter, Montserrat } from "next/font/google";
 
-import "@/styles/globals.css"
 
-import Script from "next/script"
 
-import { Footer } from "@/components/footer"
+
+
+
+import "@/styles/globals.css";
+
+
+
+import Script from "next/script";
+
+
+
+import { Footer } from "@/components/footer";
+
+
+
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({
@@ -15,7 +28,33 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Singular Singularity",
-  description: "My Portfolio",
+  description: "Portfolio for Aghyad Alghazawi",
+  keywords: "portfolio, Aghyad Alghazawi, web developer, design, software engineer, React, Next.js",
+  authors: [
+    { name: "Aghyad Alghazawi", url: "https://aghyad-alghazawi.github.io/" },
+  ],
+  openGraph: {
+    title: "Singular Singularity",
+    description: "Portfolio for Aghyad Alghazawi",
+    url: "https://aghyad-alghazawi.github.io/", 
+    siteName: "Singular Singularity",
+    images: [
+      {
+        url: "/images/thumbnail.webp",
+        width: 800,
+        height: 600,
+        alt: "Aghyad Alghazawi",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Singular Singularity",
+    description: "Portfolio for Aghyad Alghazawi",
+    images: ["/images/thumbnail.webp"], 
+  },
 }
 
 export default function RootLayout({
