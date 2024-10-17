@@ -1,5 +1,5 @@
 .box {
-  path {
+  & path {
     fill: transparent;
     stroke:white;
     stroke-width: 1;
