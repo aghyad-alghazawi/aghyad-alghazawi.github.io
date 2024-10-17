@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {},
   basePath: "",
-  // output: "export",
+  output: "export",
 };
 
 export default nextConfig;
