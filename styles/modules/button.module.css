@@ -1,7 +1,3 @@
-:root {
-  --color: 270, 85%, 2.5%;
-}
-
 .button {
   padding: 24px 48px;
   text-align: center;
@@ -25,19 +21,19 @@
 }
 
 .primary {
-  color: white;
-  background-color: hsla(var(--color), 1);
+  color: hsla(var(--light), 1);
+  background-color: hsla(var(--dark), 0.9);
+  border: 2px solid hsla(var(--dark), 1);
+
   /* background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  
   @apply backdrop-blur-[10px]; */
-  
-  border: 2px solid hsla(var(--color), 1);
 }
 
 .secondary {
-  background-color: hsla(var(--color), 0);
-  border: 2px solid white;
+  color: hsla(var(--light), 1);
+  background-color: hsla(var(--dark), 0);
+  border: 2px solid hsla(var(--light), 1);
 }
 
 .button:active {
