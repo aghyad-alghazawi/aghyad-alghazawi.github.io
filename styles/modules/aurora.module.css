@@ -1,6 +1,13 @@
-:global(.shared-vars) {
-  --size: 80%;
-  --blend-mode: hard-light;
+@property --size {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 80%;
+}
+
+@property --blend-mode {
+  syntax: '*';
+  inherits: false;
+  initial-value: hard-light;
 }
 
 .gradients-container {
