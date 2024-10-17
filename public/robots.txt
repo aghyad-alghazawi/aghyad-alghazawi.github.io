@@ -1,0 +1,11 @@
+# Allow all crawlers access to everything
+User-agent: *
+Disallow:
+
+# Prevent access to specific directories (if any exist)
+# Disallow: /scripts/
+# Disallow: /assets/
+
+# Block specific bots (optional)
+User-agent: BadBot
+Disallow: /

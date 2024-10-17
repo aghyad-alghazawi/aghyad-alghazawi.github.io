@@ -1,24 +1,11 @@
-import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import type { Metadata } from "next"
+import { Inter, Montserrat } from "next/font/google"
 
+import "@/styles/globals.css"
 
+import Script from "next/script"
 
-
-
-
-import "@/styles/globals.css";
-
-
-
-import Script from "next/script";
-
-
-
-import { Footer } from "@/components/footer";
-
-
-
-
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({
@@ -27,24 +14,22 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "Singular Singularity",
-  description: "Portfolio for Aghyad Alghazawi",
-  keywords:
-    "portfolio, Aghyad Alghazawi, web developer, design, software engineer, React, Next.js",
-  authors: [
-    { name: "Aghyad Alghazawi", url: "https://aghyad-alghazawi.github.io/" },
-  ],
+  title: process.env.TITLE,
+  description: process.env.DESCRIPTION,
+  keywords: process.env.TAGS,
+  authors: [{ name: process.env.AUTHOR, url: `https://${process.env.DOMAIN}` }],
+  metadataBase: new URL(`https://${process.env.DOMAIN}`),
   openGraph: {
-    title: "Singular Singularity",
-    description: "Portfolio for Aghyad Alghazawi",
-    url: "https://aghyad-alghazawi.github.io/",
-    siteName: "Singular Singularity",
+    title: process.env.TITLE,
+    description: process.env.DESCRIPTION,
+    url: `https://${process.env.DOMAIN}`,
+    siteName: process.env.TITLE,
     images: [
       {
-        url: "../public/images/thumbnail.webp",
+        url: "/images/thumbnail.webp",
         width: 800,
         height: 600,
-        alt: "Aghyad Alghazawi",
+        alt: process.env.AUTHOR,
       },
     ],
     locale: "en_US",
@@ -52,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Singular Singularity",
-    description: "Portfolio for Aghyad Alghazawi",
-    images: ["../public/images/thumbnail.webp"],
+    title: process.env.TITLE,
+    description: process.env.DESCRIPTION,
+    images: ["/images/thumbnail.webp"],
   },
 }
 
@@ -67,7 +52,7 @@ export default function RootLayout({
     <html lang={"en"}>
       <head>
         <link rel="preload" href="/images/profile.webp" as="image"></link>
-        <script type={"text/javascript"} src={"/scripts/simplex.js"} async />
+        {/* <script type={"text/javascript"} src={"/scripts/simplex.js"} async /> */}
       </head>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
         <header>{/* <Header /> */}</header>
