@@ -13,6 +13,7 @@
   height: 600px;
   left: 50%;
   transform: translateX(-25%);
+  margin-left: 2.5rem;
 
   .hero {
     height: 100%;
@@ -29,7 +30,7 @@
     .action {
       pointer-events: all;
       display: flex;
-      gap: 16;
+      gap: 1rem;
     }
   }
 }

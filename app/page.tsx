@@ -102,7 +102,7 @@ export default function Page() {
               <br />
               SINGULARITY */}
             </span>
-            <p className={"text-xl font-inter font-thin mt-10"}>
+            <p className={"text-xl font-inter font-thin mt-10 my-20"}>
               With a focus on seamless functionality and design, I thrive in
               bringing complex ideas to life. Let's collaborate to turn your
               vision into reality

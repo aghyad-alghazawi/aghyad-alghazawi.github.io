@@ -1,4 +1,6 @@
 .box {
+  width: 40vw;
+
   & path {
     fill: transparent;
     stroke:white;
