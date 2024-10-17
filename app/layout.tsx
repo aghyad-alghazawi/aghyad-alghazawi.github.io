@@ -29,18 +29,19 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Singular Singularity",
   description: "Portfolio for Aghyad Alghazawi",
-  keywords: "portfolio, Aghyad Alghazawi, web developer, design, software engineer, React, Next.js",
+  keywords:
+    "portfolio, Aghyad Alghazawi, web developer, design, software engineer, React, Next.js",
   authors: [
     { name: "Aghyad Alghazawi", url: "https://aghyad-alghazawi.github.io/" },
   ],
   openGraph: {
     title: "Singular Singularity",
     description: "Portfolio for Aghyad Alghazawi",
-    url: "https://aghyad-alghazawi.github.io/", 
+    url: "https://aghyad-alghazawi.github.io/",
     siteName: "Singular Singularity",
     images: [
       {
-        url: "/images/thumbnail.webp",
+        url: "../public/images/thumbnail.webp",
         width: 800,
         height: 600,
         alt: "Aghyad Alghazawi",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Singular Singularity",
     description: "Portfolio for Aghyad Alghazawi",
-    images: ["/images/thumbnail.webp"], 
+    images: ["../public/images/thumbnail.webp"],
   },
 }
 

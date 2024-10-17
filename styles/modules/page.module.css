@@ -20,8 +20,9 @@
     padding: 64 32;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: start;
+    gap: 1rem;
 
     .text {
       text-shadow: 3px 3px 30px hsla(var(--dark), 0.25);
