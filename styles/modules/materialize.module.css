@@ -1,0 +1,26 @@
+.box {
+  path {
+    fill: transparent;
+    stroke:white;
+    stroke-width: 1;
+    stroke-dashoffset: 100%;
+    stroke-dasharray: 100%;
+
+    animation: draw 1s ease-in-out forwards, fade 2s ease-in-out forwards;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: hsl(var(--light));
+  }
+}

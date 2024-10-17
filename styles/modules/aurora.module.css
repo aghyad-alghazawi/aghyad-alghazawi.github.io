@@ -1,0 +1,105 @@
+:root {
+  --first-color: 198, 51%, 53%;   /* blue-green */
+  --second-color: 278, 48%, 60%;  /* amethyst */
+  --third-color: 261, 41%, 47%;  /* royal purple */
+  --fourth-color: 182, 80%, 64%;   /* electric blue */
+  --fifth-color: 235, 40%, 42%;   /* marian blue */
+  --size: 80%;
+  --blending-value: hard-light;
+}
+
+/* Gradients container and blur */
+.gradients-container {
+  background: linear-gradient(40deg, hsl(var(--third-color)), hsl(var(--second-color)));
+  height: 100%;
+  width: 100%;
+  filter: blur(40px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Random polygonal crystal shapes */
+@keyframes moveComplex {
+  0% {
+    transform: translate(-20%, -20%) scale(0.8) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30%, -50%) scale(1) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(50%, 50%) scale(1.2) rotate(90deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, 30%) scale(1) rotate(135deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-20%, -20%) scale(0.8) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg) scale(1) translate(-10%, -10%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1) translate(50%, 50%);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1) translate(-10%, -10%);
+    opacity: 0.4;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Gradient items with polygonal crystal shapes */
+.gradient-item {
+  position: absolute;
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  width: var(--size);
+  height: var(--size);
+  clip-path: polygon(50% 0%, 90% 25%, 100% 70%, 60% 100%, 10% 80%, 0% 30%); /* This makes the shape crystal-like */
+  mix-blend-mode: var(--blending-value);
+}
+
+.first {
+  background: linear-gradient(135deg, hsla(var(--first-color), 1), hsla(var(--first-color), 0.5));
+  animation: moveComplex 35s ease-in-out infinite;
+}
+
+.second {
+  background: linear-gradient(135deg, hsla(var(--second-color), 1), hsla(var(--second-color), 0.5));
+  animation: moveInCircle 25s linear reverse infinite;
+}
+
+.third {
+  background: linear-gradient(135deg, hsla(var(--third-color), 1), hsla(var(--third-color), 0.5));
+  animation: pulse 45s ease infinite;
+}
+
+.fourth {
+  background: linear-gradient(135deg, hsla(var(--fourth-color), 1), hsla(var(--fourth-color), 0.5));
+  animation: moveInCircle 30s linear infinite;
+}
+
+.fifth {
+  background: linear-gradient(135deg, hsla(var(--fifth-color), 1), hsla(var(--fifth-color), 0.5));
+  animation: moveComplex 40s ease infinite;
+}

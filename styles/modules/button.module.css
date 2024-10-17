@@ -1,0 +1,68 @@
+:root {
+  --color: 270, 85%, 2.5%;
+}
+
+.button {
+  padding: 24px 48px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  display: inline-flex;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+
+  @apply font-monts font-medium tracking-wider;
+
+  .icon {
+    display: flex;
+    margin-left: 0.8rem;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+  }
+}
+
+.primary {
+  color: white;
+  background-color: hsla(var(--color), 1);
+  /* background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  
+  @apply backdrop-blur-[10px]; */
+  
+  border: 2px solid hsla(var(--color), 1);
+}
+
+.secondary {
+  background-color: hsla(var(--color), 0);
+  border: 2px solid white;
+}
+
+.button:active {
+  scale: 0.95;
+}
+
+.button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.small {
+  width: 112px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+
+.medium {
+  width: 148px;
+  height: 50px;
+  font-size: 1rem;
+}
+
+.large {
+  width: 184px;
+  height: 64px;
+  font-size: 1.1rem;
+}
