@@ -9,3 +9,5 @@ Disallow:
 # Block specific bots (optional)
 User-agent: BadBot
 Disallow: /
+
+Sitemap: https://aghyad-alghazawi.github.io/sitemap.xml

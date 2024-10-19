@@ -514,8 +514,8 @@ function Point(x, y, color, colorType) {
   this.y = y
   this.color = color
   this.colorType = colorType
-  this.vx = Math.random() * (3 + 3) - 3
-  this.vy = Math.random() * (3 + 3) - 3
+  this.vx = 0 //Math.random() * (3 + 3) - 3
+  this.vy = 0 //Math.random() * (3 + 3) - 3
   this._latest = { x: this.x, y: this.y }
 }
 
@@ -661,10 +661,10 @@ Point.prototype = {
 }
 ;(function () {
   // Configs
-  var DRAG_POINT_NUM = 4,
-    DRAG_POINT_MAX_NUM = 8,
+  var DRAG_POINT_NUM = 3,
+    DRAG_POINT_MAX_NUM = 5,
     CHILD_NUM = 2,
-    LIHTNING_COLOR = [261, 41, 47] // HSL
+    LIHTNING_COLOR = [0, 0, 0] // HSL
   BACKGROUND_COLOR = "transparent"
 
   // Vars
@@ -753,7 +753,7 @@ Point.prototype = {
   // Functions
 
   function createPoint(x, y) {
-    return new Point(x, y, LIHTNING_COLOR.slice(), "hsl")
+    return new Point(x, y, LIHTNING_COLOR.slice(), "rgb")
   }
 
   // Array sort callback
@@ -769,14 +769,15 @@ Point.prototype = {
   window.addEventListener("resize", resize, false)
   resize(null)
 
-  for (i = 0; i < DRAG_POINT_NUM; i++) {
-    points.push(
-      createPoint(
-        Math.random() * canvasMinSize + centerX - canvasMinSize * 0.5,
-        Math.random() * canvasMinSize + centerY - canvasMinSize * 0.5
-      )
-    )
-  }
+  var margin = canvas.width * 0.1 // 10% margin on each side
+  var leftX = margin
+  var centerX = canvas.width * 0.5
+  var rightX = canvas.width - margin
+  var y = canvas.height * 0.5 // Vertical center
+
+  points.push(createPoint(leftX, y)) // Left point
+  points.push(createPoint(centerX, y)) // Center point
+  points.push(createPoint(rightX, y)) // Right point
 
   lightning = new Lightning()
   lightning.addParam(8, 10, 0.7, 0.01) // segumentsNum, noiseBase, amplitude, speed
@@ -805,7 +806,7 @@ Point.prototype = {
     context.fillRect(0, 0, canvas.width, canvas.height)
     context.restore()
 
-    context.globalCompositeOperation = "lighter"
+    context.globalCompositeOperation = "additive"
     for (i = 0, len = points.length; i < len; i++) {
       p = points[i]
       p.update()
@@ -823,7 +824,7 @@ Point.prototype = {
     controls.sort(sortPoints)
 
     lightning.render(context, controls)
-    lightning.color[2] = Math.random() * (100 - 35) + 35
+    // lightning.color[2] = Math.random() * (100 - 35) + 35
 
     requestAnimationFrame(loop)
   }

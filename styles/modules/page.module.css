@@ -4,6 +4,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: -10;
 }
 
 .center {
@@ -25,7 +26,11 @@
     gap: 1rem;
 
     .text {
-      text-shadow: 3px 3px 30px hsla(var(--dark), 0.25);
+      text-shadow: 3px 3px 30px hsla(var(--dark), 0.5);
+
+      & span {
+        filter: drop-shadow(3px 3px 30px hsla(var(--dark), 0.25));
+      }
     }
 
     .action {
@@ -56,13 +61,9 @@
   position: absolute;
   height: 100vh;
 
-  /* &:nth-child(1) {
-    filter: blur(6);
+  #profile {
+    z-index: 10;
   }
-
-  &:nth-child(2) {
-    filter: blur(3);
-  } */
 }
 
 .layer svg {

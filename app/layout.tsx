@@ -6,6 +6,7 @@ import "@/styles/globals.css"
 import Script from "next/script"
 
 import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({
@@ -51,21 +52,30 @@ export default function RootLayout({
   return (
     <html lang={"en"}>
       <head>
+        <meta
+          name="google-site-verification"
+          content="Wfi-L480X8UbwCH846R0XmkJcVpN5gIAVeZ_4uM1s2o"
+        />
         <link rel="preload" href="/images/profile.webp" as="image"></link>
         {/* <script type={"text/javascript"} src={"/scripts/simplex.js"} async /> */}
       </head>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
-        <header>{/* <Header /> */}</header>
+        {/* <canvas
+          id="c"
+          className="w-[28vw] h-[30vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ml-[3rem] mt-[7rem]"
+        >
+          <Script src={"/scripts/lightning.js"} />
+        </canvas> */}
+
+        <header>
+          <Header />
+        </header>
 
         {children}
 
         <footer>
           <Footer />
         </footer>
-
-        <canvas id="lightning-trail">
-          <Script src={"/scripts/trail.js"} />
-        </canvas>
       </body>
     </html>
   )

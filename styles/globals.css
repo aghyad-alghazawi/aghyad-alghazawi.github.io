@@ -119,12 +119,6 @@ body {
 }
 
 @layer base {
-  canvas {
-    @apply block fixed z-10;
-    @apply top-0 left-0 h-full w-full;
-    @apply pointer-events-none;
-  }
-
   header {
     @apply hidden;
   }

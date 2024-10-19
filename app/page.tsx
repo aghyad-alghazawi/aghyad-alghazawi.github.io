@@ -3,12 +3,12 @@
 import React from "react"
 
 import Button from "@/components/ui/button"
-import { Aurora } from "@/components/aurora"
 import { FlipWords } from "@/components/ui/flip-words"
 import { Materialize } from "@/components/ui/materialize"
+import { Aurora } from "@/components/aurora"
+import { LightningBorder, LightningTrail } from "@/components/lightning"
 
 import Styles from "@/styles/modules/page.module.css"
-
 
 export default function Page() {
   const [showResume, setShowResume] = React.useState(false)
@@ -22,6 +22,15 @@ export default function Page() {
 
   return (
     <main>
+      <LightningTrail
+        speed={0.05}
+        maxTrailPoints={20}
+        segmentRange={[5, 10]}
+        glowIntensity={15}
+        lineWidthRange={[1, 3]}
+        color="rgba(0, 0, 0, 1)"
+      />
+
       <section className={Styles.overlay}>
         <Aurora />
         <div className={"hidden fixed h-full w-full"} />
@@ -57,7 +66,11 @@ export default function Page() {
           </svg>
         </div>
         <div className={Styles.layer}>
-          <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            id={"profile"}
+            viewBox="0 0 820 1080"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <defs>
               <filter id="blur-strong">
                 <feGaussianBlur stdDeviation="6" in="SourceGraphic" />
@@ -114,6 +127,7 @@ export default function Page() {
               size={"large"}
               onClick={() => setShowResume(!showResume)}
             />
+
             <Button title={"ABOUT"} variant={"secondary"} size={"large"} />
           </div>
           {showResume && (
