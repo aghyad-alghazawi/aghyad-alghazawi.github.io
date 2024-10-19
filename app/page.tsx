@@ -6,7 +6,7 @@ import Button from "@/components/ui/button"
 import { FlipWords } from "@/components/ui/flip-words"
 import { Materialize } from "@/components/ui/materialize"
 import { Aurora } from "@/components/aurora"
-import { LightningBorder, LightningTrail } from "@/components/lightning"
+import { LightningTrail } from "@/components/lightning"
 
 import Styles from "@/styles/modules/page.module.css"
 
