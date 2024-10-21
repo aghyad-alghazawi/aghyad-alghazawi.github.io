@@ -1,21 +1,20 @@
-"use client";
+"use client"
 
-import React, { createContext, ReactNode, useContext, useEffect, useRef, useState } from "react";
-import { X } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import { X } from "@phosphor-icons/react"
+import { AnimatePresence, motion } from "framer-motion"
 
+import { useEscapeKey, useOutsideClick } from "@/lib/hooks"
+import { cn } from "@/lib/utils"
 
-
-import { useEscapeKey, useOutsideClick } from "@/lib/hooks";
-import { cn } from "@/lib/utils";
-
-
-
-import { Button } from "@/components/ui/button";
-
-
-
-
+import { Button } from "@/components/ui/button"
 
 interface ModalContextType {
   open: boolean
@@ -105,7 +104,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark/75 border border-transparent relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark border border-light relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -162,9 +161,7 @@ export const ModalFooter = ({
   className?: string
 }) => {
   return (
-    <div
-      className={cn("flex justify-end p-4 bg-dark bg-opacity-50", className)}
-    >
+    <div className={cn("flex justify-end p-4 bg-light/5", className)}>
       {children}
     </div>
   )

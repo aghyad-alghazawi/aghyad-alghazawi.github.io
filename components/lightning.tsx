@@ -178,6 +178,7 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
       ref={canvasRef}
       id="lightning-trail"
       style={{
+        // mixBlendMode: "luminosity",
         pointerEvents: "none",
         display: "block",
         position: "fixed",

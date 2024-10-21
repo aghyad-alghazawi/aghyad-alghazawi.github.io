@@ -33,7 +33,7 @@
         filter: drop-shadow(3px 3px 30px hsl(var(--dark) / 0.25));
       }
     }
-
+    
     .action {
       pointer-events: all;
       display: flex;
