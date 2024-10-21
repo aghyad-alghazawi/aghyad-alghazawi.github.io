@@ -4,9 +4,11 @@ import { Inter, Montserrat } from "next/font/google"
 import "@/styles/globals.css"
 
 import Script from "next/script"
+import { Provider } from "@/providers/provider"
 
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { LightningTrail } from "@/components/lightning"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({
@@ -66,16 +68,26 @@ export default function RootLayout({
         >
           <Script src={"/scripts/lightning.js"} />
         </canvas> */}
+        <Provider>
+          <header>
+            <Header />
+          </header>
 
-        <header>
-          <Header />
-        </header>
+          {children}
 
-        {children}
-
-        <footer>
-          <Footer />
-        </footer>
+          <footer>
+            <Footer />
+          </footer>
+          
+          <LightningTrail
+            speed={0.05}
+            maxTrailPoints={20}
+            segmentRange={[5, 10]}
+            glowIntensity={15}
+            lineWidthRange={[1, 3]}
+            color="rgba(0, 0, 0, 1)"
+          />
+        </Provider>
       </body>
     </html>
   )

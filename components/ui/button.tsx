@@ -12,7 +12,7 @@ interface ButtonProps extends DefaultProps {
   icon?: Icon
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { variant = "primary", size = "medium", title, icon: Icon, ...props },
     ref
@@ -24,7 +24,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {title}
         {Icon && (
           <span className={Styles.icon}>
-            <Icon size={24}/>
+            <Icon size={24} />
           </span>
         )}
       </button>
@@ -33,5 +33,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 
 Button.displayName = "Button"
-
-export default Button

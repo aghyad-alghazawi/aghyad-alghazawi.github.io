@@ -21,9 +21,9 @@
 }
 
 .primary {
-  color: hsla(var(--light), 1);
-  background-color: hsla(var(--dark), 0.9);
-  border: 2px solid hsla(var(--dark), 1);
+  color: hsl(var(--light) / 1);
+  background-color: hsl(var(--dark) / 0.9);
+  border: 2px solid hsl(var(--dark) / 1);
 
   /* background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -31,9 +31,13 @@
 }
 
 .secondary {
-  color: hsla(var(--light), 1);
-  background-color: hsla(var(--dark), 0);
-  border: 2px solid hsla(var(--light), 1);
+  color: hsl(var(--light) / 1);
+  background-color: hsl(var(--dark) / 0);
+  border: 2px solid hsl(var(--light) / 1);
+}
+
+.button:hover {
+  transform: translateY(-10);
 }
 
 .button:active {

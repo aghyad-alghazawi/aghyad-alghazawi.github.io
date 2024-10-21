@@ -1,11 +1,11 @@
 @property --size {
-  syntax: '<percentage>';
+  syntax: "<percentage>";
   inherits: false;
   initial-value: 80%;
 }
 
 @property --blend-mode {
-  syntax: '*';
+  syntax: "*";
   inherits: false;
   initial-value: hard-light;
 }
@@ -13,8 +13,8 @@
 .gradients-container {
   background: linear-gradient(
     40deg,
-    hsl(var(--royal-purple)),
-    hsl(var(--amethyst))
+    hsl(var(--amethyst)),
+    hsl(var(--royal-purple))
   );
   height: 100%;
   width: 100%;
@@ -86,8 +86,8 @@
 .first {
   background: linear-gradient(
     135deg,
-    hsla(var(--blue-green), 1),
-    hsla(var(--blue-green), 0.5)
+    hsl(var(--blue-green) / 1),
+    hsl(var(--blue-green) / 0.5)
   );
   animation: moveComplex 35s ease-in-out infinite;
 }
@@ -95,8 +95,8 @@
 .second {
   background: linear-gradient(
     135deg,
-    hsla(var(--amethyst), 1),
-    hsla(var(--amethyst), 0.5)
+    hsl(var(--amethyst) / 1),
+    hsl(var(--amethyst) / 0.5)
   );
   animation: moveInCircle 25s linear reverse infinite;
 }
@@ -104,8 +104,8 @@
 .third {
   background: linear-gradient(
     135deg,
-    hsla(var(--royal-purple), 1),
-    hsla(var(--royal-purple), 0.5)
+    hsl(var(--royal-purple) / 1),
+    hsl(var(--royal-purple) / 0.5)
   );
   animation: pulse 45s ease infinite;
 }
@@ -113,8 +113,8 @@
 .fourth {
   background: linear-gradient(
     135deg,
-    hsla(var(--electric-blue), 1),
-    hsla(var(--electric-blue), 0.5)
+    hsl(var(--electric-blue) / 1),
+    hsl(var(--electric-blue) / 0.5)
   );
   animation: moveInCircle 30s linear infinite;
 }
@@ -122,8 +122,8 @@
 .fifth {
   background: linear-gradient(
     135deg,
-    hsla(var(--marian-blue), 1),
-    hsla(var(--marian-blue), 0.5)
+    hsl(var(--marian-blue) / 1),
+    hsl(var(--marian-blue) / 0.5)
   );
   animation: moveComplex 40s ease infinite;
 }

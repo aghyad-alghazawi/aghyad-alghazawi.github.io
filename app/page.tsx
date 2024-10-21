@@ -1,17 +1,26 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 
-import Button from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { FlipWords } from "@/components/ui/flip-words"
 import { Materialize } from "@/components/ui/materialize"
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalTrigger,
+  useModal,
+} from "@/components/ui/modal"
 import { Aurora } from "@/components/aurora"
-import { LightningTrail } from "@/components/lightning"
+import { Form } from "@/components/form"
 
 import Styles from "@/styles/modules/page.module.css"
 
 export default function Page() {
   const [showResume, setShowResume] = React.useState(false)
+  const { open, setOpen } = useModal()
 
   const spacer = "\u2000"
   const words = [
@@ -22,15 +31,6 @@ export default function Page() {
 
   return (
     <main>
-      <LightningTrail
-        speed={0.05}
-        maxTrailPoints={20}
-        segmentRange={[5, 10]}
-        glowIntensity={15}
-        lineWidthRange={[1, 3]}
-        color="rgba(0, 0, 0, 1)"
-      />
-
       <section className={Styles.overlay}>
         <Aurora />
         <div className={"hidden fixed h-full w-full"} />
@@ -124,16 +124,21 @@ export default function Page() {
           <div className={Styles.action}>
             <Button
               title={"CONTACT"}
+              variant={"primary"}
+              size={"large"}
+              onClick={() => setOpen(true)}
+            />
+            <Button
+              title={"ABOUT"}
+              variant={"secondary"}
               size={"large"}
               onClick={() => setShowResume(!showResume)}
             />
-
-            <Button title={"ABOUT"} variant={"secondary"} size={"large"} />
           </div>
           {showResume && (
             <iframe
-              src="/assets/my-resume.pdf"
-              className="fixed z-50 pointer-events-auto mt-4 w-full h-[80vh] border-2 border-gray-300 rounded-lg shadow-lg"
+              src="/assets/resume.pdf"
+              className="fixed z-50 pointer-events-auto mt-4 w-full h-[80vh] border-2 border-light rounded-lg shadow-lg"
               title="Resume"
             />
           )}
@@ -169,6 +174,14 @@ export default function Page() {
             />
           </svg>
         </div>
+      </section>
+      <section className={Styles.modal}>
+        <ModalBody>
+          <ModalContent>
+            <Form />
+          </ModalContent>
+          <ModalFooter>she</ModalFooter>
+        </ModalBody>
       </section>
     </main>
   )

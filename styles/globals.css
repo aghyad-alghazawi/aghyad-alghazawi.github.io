@@ -4,59 +4,24 @@
 
 @layer base {
   :root {
-    --background: 260 40% 98%;
-    --foreground: 260 59% 5%;
-    --card: 260 40% 97%;
-    --card-foreground: 260 59% 4%;
-    --popover: 260 40% 97%;
-    --popover-foreground: 260 59% 4%;
-    --primary: 260 60% 15%;
-    --primary-foreground: 260 60% 75%;
-    --secondary: 230 60% 15%;
-    --secondary-foreground: 230 60% 75%;
-    --muted: 230 20% 86%;
-    --muted-foreground: 230 15% 39%;
-    --accent: 290 60% 15%;
-    --accent-foreground: 290 60% 75%;
-    --destructive: 19 80% 38%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 260 4% 88%;
-    --input: 260 4% 88%;
-    --ring: 260 60% 15%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0rem;
+    --light: 0deg 50% 99%;
+    --dark: 267deg 85% 3%;
+    --blue-green: 198deg 51% 53%;
+    --amethyst: 278deg 48% 60%;
+    --electric-blue: 182deg 80% 64%;
+    --royal-purple: 261deg 41% 47%;
+    --marian-blue: 235deg 40% 42%;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: 260 44% 4%;
-      --foreground: 260 13% 99%;
-      --card: 260 44% 5%;
-      --card-foreground: 0 0% 100%;
-      --popover: 260 44% 5%;
-      --popover-foreground: 0 0% 100%;
-      --primary: 260 60% 15%;
-      --primary-foreground: 260 60% 75%;
-      --secondary: 230 60% 15%;
-      --secondary-foreground: 230 60% 75%;
-      --muted: 230 20% 14%;
-      --muted-foreground: 230 15% 61%;
-      --accent: 290 60% 15%;
-      --accent-foreground: 290 60% 75%;
-      --destructive: 19 80% 57%;
-      --destructive-foreground: 0 0% 0%;
-      --border: 260 4% 11%;
-      --input: 260 4% 11%;
-      --ring: 260 60% 15%;
-      --chart-1: 220 70% 50%;
-      --chart-2: 160 60% 45%;
-      --chart-3: 30 80% 55%;
-      --chart-4: 280 65% 60%;
-      --chart-5: 340 75% 55%;
+      --light: 0deg 50% 99%;
+      --dark: 267deg 85% 3%;
+      --blue-green: 198deg 51% 53%;
+      --amethyst: 278deg 48% 60%;
+      --electric-blue: 182deg 80% 64%;
+      --royal-purple: 261deg 41% 47%;
+      --marian-blue: 235deg 40% 42%;
     }
 
     html {
@@ -82,17 +47,9 @@ body {
 }
 
 body {
-  --light: 0, 50%, 99%;
-  --dark: 267, 85%, 3%;
-  --blue-green: 198, 51%, 53%;
-  --amethyst: 278, 48%, 60%;
-  --electric-blue: 182, 80%, 64%;
-  --royal-purple: 261, 41%, 47%;
-  --marian-blue: 235, 40%, 42%;
-
-  color: hsla(var(--light), 1);
-  accent-color: hsla(var(--royal-purple), 1);
-  background-color: hsla(var(--dark), 0.25);
+  color: hsl(var(--light) / 1);
+  accent-color: hsl(var(--royal-purple) / 1);
+  background-color: hsl(var(--dark) / 0.25);
 
   & a {
     color: inherit;

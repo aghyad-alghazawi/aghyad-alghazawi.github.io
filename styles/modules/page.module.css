@@ -26,10 +26,11 @@
     gap: 1rem;
 
     .text {
-      text-shadow: 3px 3px 30px hsla(var(--dark), 0.5);
+      user-select: none;
+      text-shadow: 3px 3px 30px hsl(var(--dark) / 0.5);
 
       & span {
-        filter: drop-shadow(3px 3px 30px hsla(var(--dark), 0.25));
+        filter: drop-shadow(3px 3px 30px hsl(var(--dark) / 0.25));
       }
     }
 
@@ -55,6 +56,13 @@
   .layer {
     right: 0;
   }
+}
+
+.modal {
+  pointer-events: all;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .layer {
