@@ -30,7 +30,7 @@ export default function Page() {
   ]
 
   return (
-    <main>
+    <>
       <section className={Styles.overlay}>
         <Aurora />
         <div className={"hidden fixed h-full w-full"} />
@@ -123,13 +123,13 @@ export default function Page() {
           </div>
           <div className={Styles.action}>
             <Button
-              title={"CONTACT"}
+              title={"CONNECT"}
               variant={"primary"}
               size={"large"}
               onClick={() => setOpen(true)}
             />
             <Button
-              title={"ABOUT"}
+              title={"ABOUT ME"}
               variant={"secondary"}
               size={"large"}
               onClick={() => setShowResume(!showResume)}
@@ -183,6 +183,6 @@ export default function Page() {
           <ModalFooter>she</ModalFooter>
         </ModalBody>
       </section>
-    </main>
+    </>
   )
 }

@@ -4,7 +4,7 @@ import { Inter, Montserrat } from "next/font/google"
 import "@/styles/globals.css"
 
 import Script from "next/script"
-import { Provider } from "@/providers/provider"
+import { Providers } from "@/providers/providers"
 
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
@@ -59,26 +59,20 @@ export default function RootLayout({
           content="Wfi-L480X8UbwCH846R0XmkJcVpN5gIAVeZ_4uM1s2o"
         />
         <link rel="preload" href="/images/profile.webp" as="image"></link>
-        {/* <script type={"text/javascript"} src={"/scripts/simplex.js"} async /> */}
+        <script type={"text/javascript"} src={"/scripts/simplex.js"} async />
       </head>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
-        {/* <canvas
-          id="c"
-          className="w-[28vw] h-[30vh] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ml-[3rem] mt-[7rem]"
-        >
-          <Script src={"/scripts/lightning.js"} />
-        </canvas> */}
-        <Provider>
+        <Providers>
           <header>
             <Header />
           </header>
 
-          {children}
+          <main>{children}</main>
 
           <footer>
             <Footer />
           </footer>
-          
+
           <LightningTrail
             speed={0.05}
             maxTrailPoints={20}
@@ -86,8 +80,9 @@ export default function RootLayout({
             glowIntensity={15}
             lineWidthRange={[1, 3]}
             color="rgba(0, 0, 0, 1)"
+            glowColor="rgba(0, 0, 0, 0.75)"
           />
-        </Provider>
+        </Providers>
       </body>
     </html>
   )

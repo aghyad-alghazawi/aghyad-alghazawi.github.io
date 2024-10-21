@@ -57,8 +57,8 @@ function IconContainer({
   let widthTransform = useTransform(distance, [-150, 0, 150], [40, 60, 40])
   let heightTransform = useTransform(distance, [-150, 0, 150], [40, 60, 40])
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 30, 20])
-  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [20, 30, 20])
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [32, 48, 32])
+  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [32, 48, 32])
 
   let width = useSpring(widthTransform, {
     mass: 0.1,
@@ -91,7 +91,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-[color:hsl(var(--dark)/0.75)] flex items-center justify-center relative"
+        className="aspect-square rounded-full flex items-center justify-center relative"
       >
         <AnimatePresence>
           {hovered && (
@@ -99,7 +99,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre font-inter text-[color:hsl(var(--light))] absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+              className="px-2 py-0.5 whitespace-pre font-inter text-[color:hsl(var(--light)/.5)] absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
             >
               {title}
             </motion.div>

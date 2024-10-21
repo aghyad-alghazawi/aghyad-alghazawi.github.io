@@ -71,6 +71,7 @@ export const ModalBody = ({
   className?: string
 }) => {
   const { open, setOpen } = useModal()
+  const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (open) {
@@ -81,8 +82,29 @@ export const ModalBody = ({
   }, [open])
 
   useEscapeKey(() => setOpen(false))
-  const modalRef = useRef(null)
   useOutsideClick(modalRef, () => setOpen(false))
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!modalRef.current) return
+    const { left, top, width, height } =
+      modalRef.current.getBoundingClientRect()
+
+    // Calculate rotation values
+    let x = (e.clientX - left - width / 2) / 60
+    let y = (e.clientY - top - height / 2) / 60
+
+    // Clamp the rotation to avoid extreme values
+    x = Math.max(Math.min(x, 15), -15)
+    y = Math.max(Math.min(y, 15), -15)
+
+    modalRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`
+  }
+
+  const handleMouseLeave = () => {
+    if (!modalRef.current) return
+    modalRef.current.style.transition = "transform 0.5s ease-out" // Add smooth transition on leave
+    modalRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`
+  }
 
   return (
     <AnimatePresence>
@@ -128,6 +150,14 @@ export const ModalBody = ({
               type: "spring",
               stiffness: 260,
               damping: 15,
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              transformStyle: "preserve-3d",
+              transition: "transform 0.1s ease-out", // Smooth transitions on movement
+              backfaceVisibility: "hidden", // Prevent back face rendering
+              willChange: "transform",
             }}
           >
             <CloseIcon />

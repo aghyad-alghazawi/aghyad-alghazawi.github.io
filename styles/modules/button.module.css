@@ -9,7 +9,7 @@
   white-space: nowrap;
   transition: all 0.3s ease;
 
-  @apply font-monts font-medium tracking-wider;
+  @apply font-monts font-semibold tracking-wider;
 
   .icon {
     display: flex;
@@ -24,20 +24,23 @@
   color: hsl(var(--light) / 1);
   background-color: hsl(var(--dark) / 0.9);
   border: 2px solid hsl(var(--dark) / 1);
-
-  /* background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  @apply backdrop-blur-[10px]; */
 }
 
 .secondary {
   color: hsl(var(--light) / 1);
-  background-color: hsl(var(--dark) / 0);
+  background-color: hsl(var(--light) / 0);
   border: 2px solid hsl(var(--light) / 1);
 }
 
 .button:hover {
-  transform: translateY(-10);
+  transform: translateY(-10px);
+
+  &.primary {
+    box-shadow: 0 10px 10px hsl(var(--dark) / 0.75);
+  }
+  &.secondary {
+    box-shadow: 0 10px 10px hsl(var(--light) / 0.25);
+  }
 }
 
 .button:active {
@@ -64,5 +67,5 @@
 .large {
   width: 184px;
   height: 64px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
