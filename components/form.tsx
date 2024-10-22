@@ -37,7 +37,7 @@ export function Form() {
     },
   })
 
-  const endpoint = process.env.NEXT_PUBLIC_BASIN_ENDPOINT as string
+  const endpoint = process.env.NEXT_PUBLIC_BASIN_ENDPOINT || process.env.BASIN_ENDPOINT as string
 
   const processForm: SubmitHandler<Inputs> = async (data) => {
     try {
