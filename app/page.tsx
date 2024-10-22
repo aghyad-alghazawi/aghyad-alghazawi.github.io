@@ -126,14 +126,14 @@ export default function Page() {
               title={"CONTACT"}
               variant={"primary"}
               size={"large"}
-              onClick={() => {
-                const link = document.createElement("a")
-                link.href = "mailto://aghyad.alghazawi@gmail.com"
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-              }}
-              // onClick={() => setOpen(true)}
+              // onClick={() => {
+              //   const link = document.createElement("a")
+              //   link.href = "mailto://aghyad.alghazawi@gmail.com"
+              //   document.body.appendChild(link)
+              //   link.click()
+              //   document.body.removeChild(link)
+              // }}
+              onClick={() => setOpen(true)}
             />
             <Button
               title={"ABOUT ME"}
