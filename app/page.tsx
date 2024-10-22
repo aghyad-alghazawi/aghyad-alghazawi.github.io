@@ -132,7 +132,15 @@ export default function Page() {
               title={"ABOUT ME"}
               variant={"secondary"}
               size={"large"}
-              onClick={() => setShowResume(!showResume)}
+              onClick={() => {
+                const link = document.createElement("a")
+                link.href = "/assets/resume.pdf"
+                link.download = "Aghyad's Resume.pdf"
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+              }}
+              // onClick={() => setShowResume(!showResume)}
             />
           </div>
           {showResume && (

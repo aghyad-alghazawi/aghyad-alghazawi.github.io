@@ -75,24 +75,18 @@ body {
     @apply backdrop-blur-[10px];
   }
 
-  .gradient-outline {
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: -0.5rem;
-      z-index: -1;
-      background: linear-gradient(
+  .gradient-border {
+    border-image: linear-gradient(
         to right,
-        hsl(var(--blue-green) / 1),
+        hsl(var(--light) / 1),
         hsl(var(--royal-purple) / 1),
         hsl(var(--electric-blue) / 1),
         hsl(var(--marian-blue) / 1),
-        hsl(var(--amethyst) / 1)
-      );
-      border-radius: inherit;
-    }
+        hsl(var(--amethyst) / 1),
+        hsl(var(--blue-green) / 1),
+        hsl(var(--light) / 1)
+      )
+      1;
   }
 }
 
