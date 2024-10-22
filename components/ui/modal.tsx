@@ -126,7 +126,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark border border-light relative z-50 flex flex-col flex-1 overflow-hidden",
+              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark relative z-50 flex flex-col flex-1 overflow-hidden",
               className
             )}
             initial={{
@@ -151,13 +151,14 @@ export const ModalBody = ({
               stiffness: 260,
               damping: 15,
             }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
+            // onMouseMove={handleMouseMove}
+            // onMouseLeave={handleMouseLeave}
             style={{
               transformStyle: "preserve-3d",
-              transition: "transform 0.1s ease-out", // Smooth transitions on movement
-              backfaceVisibility: "hidden", // Prevent back face rendering
+              transition: "transform 0.1s ease-out",
+              backfaceVisibility: "hidden",
               willChange: "transform",
+              boxShadow: "0 10px 10px hsl(var(--dark) / 0.5)",
             }}
           >
             <CloseIcon />
@@ -177,7 +178,12 @@ export const ModalContent = ({
   className?: string
 }) => {
   return (
-    <div className={cn("flex flex-col flex-1 p-8 md:p-10", className)}>
+    <div
+      className={cn(
+        "flex flex-col flex-1 p-8 md:p-10 overflow-y-scroll",
+        className
+      )}
+    >
       {children}
     </div>
   )

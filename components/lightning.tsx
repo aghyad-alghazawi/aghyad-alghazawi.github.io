@@ -16,9 +16,6 @@ interface LightningTrailProps {
   glowIntensity?: number // Intensity of glow (shadow blur)
   lineWidthRange?: [number, number] // Range for trail line width
   color?: string // Trail color
-  glowColor?: string // Color for the glow effect
-  jitterAmplitude?: number // Controls how jagged the lightning is
-  opacityFadeSpeed?: number // Controls how fast opacity decreases
 }
 
 export const LightningTrail: React.FC<LightningTrailProps> = ({
@@ -28,16 +25,11 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
   glowIntensity = 10,
   lineWidthRange = [1, 2],
   color = "rgba(255, 255, 255, 1)", // default white
-  glowColor = "rgba(255, 255, 255, 0.7)", // glow shadow color
-  jitterAmplitude = 15, // random deviation for jagged lines
-  opacityFadeSpeed = 0.03, // controls opacity fade speed
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const mouseTrailRef = useRef<TrailPoint[]>([])
 
   useEffect(() => {
-    if (typeof window === "undefined") return
-
     const canvas = canvasRef.current
     const ctx = canvas?.getContext("2d")
 
@@ -48,11 +40,11 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
     canvas.height = window.innerHeight * scaleFactor
     ctx.scale(scaleFactor, scaleFactor)
 
-    const handleResize = throttle(() => {
+    const handleResize = () => {
       canvas.width = window.innerWidth * scaleFactor
       canvas.height = window.innerHeight * scaleFactor
       ctx.scale(scaleFactor, scaleFactor)
-    }, 100)
+    }
 
     const generateLightningPath = (
       startX: number,
@@ -67,11 +59,11 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
         const newX =
           startX +
           easeInOutQuad(t) * (endX - startX) +
-          (Math.random() - 0.5) * jitterAmplitude
+          (Math.random() - 0.5) * 15
         const newY =
           startY +
           easeInOutQuad(t) * (endY - startY) +
-          (Math.random() - 0.5) * jitterAmplitude
+          (Math.random() - 0.5) * 15
         points.push({ x: newX, y: newY })
       }
       points.push({ x: endX, y: endY })
@@ -111,7 +103,7 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
 
         // Set both the shadow (glow) and stroke color dynamically
         ctx.shadowBlur = glowIntensity
-        ctx.shadowColor = glowColor // Shadow color based on prop
+        ctx.shadowColor = color // Shadow color based on prop
         ctx.strokeStyle = color.replace(/, [^,]+\)$/, `, ${start.opacity})`) // Update stroke color with opacity
         ctx.lineWidth = Math.max(
           lineWidthRange[0],
@@ -119,7 +111,7 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
         )
         ctx.stroke()
 
-        start.opacity -= opacityFadeSpeed
+        start.opacity -= speed
       }
 
       mouseTrailRef.current = trail.filter((point) => point.opacity > 0)
@@ -163,15 +155,14 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
       })
     }
 
-    window.addEventListener("pointermove", handleMouseMove)
+    window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("resize", handleResize)
 
     animateTrail()
 
     return () => {
-      window.removeEventListener("pointermove", handleMouseMove)
+      window.removeEventListener("mousemove", handleMouseMove)
       window.removeEventListener("resize", handleResize)
-      cancelAnimationFrame(animationFrameId)
     }
   }, [
     speed,
@@ -180,9 +171,6 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
     glowIntensity,
     lineWidthRange,
     color,
-    glowColor,
-    jitterAmplitude,
-    opacityFadeSpeed,
   ])
 
   return (
@@ -201,16 +189,4 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
       }}
     />
   )
-}
-
-// Throttle function to limit event calls
-const throttle = (func: Function, limit: number) => {
-  let inThrottle: boolean
-  return (...args: any[]) => {
-    if (!inThrottle) {
-      func(...args)
-      inThrottle = true
-      setTimeout(() => (inThrottle = false), limit)
-    }
-  }
 }

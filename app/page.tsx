@@ -176,12 +176,7 @@ export default function Page() {
         </div>
       </section>
       <section className={Styles.modal}>
-        <ModalBody>
-          <ModalContent>
-            <Form />
-          </ModalContent>
-          <ModalFooter>she</ModalFooter>
-        </ModalBody>
+        <Form />
       </section>
     </>
   )

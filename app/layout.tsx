@@ -74,13 +74,13 @@ export default function RootLayout({
           </footer>
 
           <LightningTrail
-            speed={0.05}
+            speed={0.1}
             maxTrailPoints={20}
             segmentRange={[5, 10]}
             glowIntensity={15}
             lineWidthRange={[1, 3]}
             color="rgba(0, 0, 0, 1)"
-            glowColor="rgba(0, 0, 0, 0.75)"
+            // glowColor="rgba(0, 0, 0, 0.75)"
           />
         </Providers>
       </body>
