@@ -75,7 +75,7 @@ jobs:
           steps.detect-package-manager.outputs.command }}
 
       - name: Build with Next.js
-        env:
+        # env:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact
