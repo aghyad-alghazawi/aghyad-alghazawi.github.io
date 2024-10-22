@@ -117,16 +117,23 @@ export default function Page() {
             </span>
             <p className={"text-xl font-inter font-thin mt-10"}>
               With a focus on seamless functionality and design, I thrive in
-              bringing complex ideas to life. Let&apos;s collaborate to turn your
-              vision into reality
+              bringing complex ideas to life. Let&apos;s collaborate to turn
+              your vision into reality
             </p>
           </div>
           <div className={Styles.action}>
             <Button
-              title={"CONNECT"}
+              title={"CONTACT"}
               variant={"primary"}
               size={"large"}
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                const link = document.createElement("a")
+                link.href = "mailto://aghyad.alghazawi@gmail.com"
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+              }}
+              // onClick={() => setOpen(true)}
             />
             <Button
               title={"ABOUT ME"}

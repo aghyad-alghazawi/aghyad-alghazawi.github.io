@@ -76,7 +76,6 @@ jobs:
 
       - name: Build with Next.js
         env:
-          BASIN_ENDPOINT: ${{ secrets.BASIN_ENDPOINT }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact

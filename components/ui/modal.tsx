@@ -126,7 +126,7 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              `${Styles["modal-body"]} min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark z-50 relative flex flex-col flex-1`,
+              `${Styles["modal-body"]} min-h-[50%] max-h-[90%] md:max-w-[40%] z-50 relative flex flex-col flex-1`,
               className
             )}
             initial={{
@@ -180,7 +180,7 @@ export const ModalContent = ({
   return (
     <div
       className={cn(
-        "flex flex-col flex-1 p-8 md:p-10 bg-dark overflow-y-scroll",
+        "flex flex-col flex-1 p-8 md:p-10 bg-dark/85 overflow-y-scroll",
         className
       )}
     >
