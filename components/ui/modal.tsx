@@ -56,12 +56,9 @@ export const ModalTrigger = ({
 }) => {
   const { setOpen } = useModal()
   return (
-    <Button
-      title={"Open"}
-      onClick={() => setOpen(true)}
-      className={className}
-      children={children}
-    />
+    <Button title={"Open"} onClick={() => setOpen(true)} className={className}>
+      {children}
+    </Button>
   )
 }
 

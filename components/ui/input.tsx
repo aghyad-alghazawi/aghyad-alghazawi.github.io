@@ -3,7 +3,18 @@ import React from "react"
 import { cn } from "@/lib/utils"
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  type?:
+    | "text"
+    | "password"
+    | "email"
+    | "tel"
+    | "url"
+    | "number"
+    | "search"
+    | "hidden"
+  classname?: string
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {

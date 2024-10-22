@@ -28,8 +28,10 @@ export async function formAction(data: Inputs) {
     if (!response.ok) {
       throw new Error("An error occurred. Please try again.")
     }
-  } catch (error: any) {
-    return { error: error.message || "An error occurred. Please try again." }
+  } catch (error) {
+    const errorMessage =
+      (error as Error).message || "An error occurred. Please try again."
+    return { error: errorMessage }
   }
 
   redirect("/thank-you")

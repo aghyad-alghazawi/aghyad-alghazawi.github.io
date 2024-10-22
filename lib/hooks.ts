@@ -1,12 +1,15 @@
 import { useEffect } from "react"
 
+// Type for the callback function that takes an event parameter
+type OutsideClickCallback = (event: MouseEvent | TouchEvent) => void
+
 export const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement>,
-  callback: Function
+  callback: OutsideClickCallback
 ) => {
   useEffect(() => {
-    const listener = (event: any) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+    const listener = (event: MouseEvent | TouchEvent) => {
+      if (!ref.current || ref.current.contains(event.target as Node)) {
         return
       }
       callback(event)
@@ -22,7 +25,9 @@ export const useOutsideClick = (
   }, [ref, callback])
 }
 
-export const useEscapeKey = (callback: Function) => {
+type EscapeKeyCallback = () => void
+
+export const useEscapeKey = (callback: EscapeKeyCallback) => {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
