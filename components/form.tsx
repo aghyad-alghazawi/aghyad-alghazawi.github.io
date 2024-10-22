@@ -1,24 +1,16 @@
-"use client";
+"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-
-
+import { zodResolver } from "@hookform/resolvers/zod"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { z } from "zod"
 
 // import { formAction } from "@/lib/actions"
-import { ContactFormSchema } from "@/lib/schemas";
+import { ContactFormSchema } from "@/lib/schemas"
 
-
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ModalBody, ModalContent, ModalFooter } from "@/components/ui/modal";
-import { Textarea } from "@/components/ui/textarea";
-
-
-
-
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { ModalBody, ModalContent, ModalFooter } from "@/components/ui/modal"
+import { Textarea } from "@/components/ui/textarea"
 
 type Inputs = z.infer<typeof ContactFormSchema>
 
@@ -37,7 +29,9 @@ export function Form() {
     },
   })
 
-  const endpoint = process.env.NEXT_PUBLIC_BASIN_ENDPOINT || process.env.BASIN_ENDPOINT as string
+  const endpoint =
+    process.env.NEXT_PUBLIC_BASIN_ENDPOINT ||
+    (process.env.BASIN_ENDPOINT as string)
 
   const processForm: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -54,8 +48,14 @@ export function Form() {
       }
 
       reset()
-    } catch (error: any) {
-      return { error: error.message || "An error occurred. Please try again." }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        return {
+          error: error.message || "An error occurred. Please try again.",
+        }
+      } else {
+        return { error: "An unexpected error occurred. Please try again." }
+      }
     }
   }
 
