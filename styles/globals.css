@@ -36,6 +36,7 @@
   margin: 0;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 html,
@@ -72,6 +73,26 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
     @apply backdrop-blur-[10px];
+  }
+
+  .gradient-outline {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.5rem;
+      z-index: -1;
+      background: linear-gradient(
+        to right,
+        hsl(var(--blue-green) / 1),
+        hsl(var(--royal-purple) / 1),
+        hsl(var(--electric-blue) / 1),
+        hsl(var(--marian-blue) / 1),
+        hsl(var(--amethyst) / 1)
+      );
+      border-radius: inherit;
+    }
   }
 }
 

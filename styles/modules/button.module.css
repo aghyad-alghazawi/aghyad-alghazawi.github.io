@@ -32,14 +32,23 @@
   border: 2px solid hsl(var(--light) / 1);
 }
 
+.tertiary {
+  color: hsl(var(--dark) / 1);
+  background-color: hsl(var(--light) / 0.9);
+  border: 2px solid hsl(var(--light) / 1);
+}
+
 .button:hover {
   transform: translateY(-10px);
 
   &.primary {
     box-shadow: 0 10px 10px hsl(var(--dark) / 0.75);
   }
-  &.secondary {
+  &.secondary, &.tertiary {
     box-shadow: 0 10px 10px hsl(var(--light) / 0.25);
+  }
+  &.tertiary {
+    background-color: hsl(var(--light) / 1);
   }
 }
 

@@ -48,41 +48,50 @@ export function Form() {
         className={"contents"}
       >
         <ModalContent>
-          <h1 className="text-3xl font-bold">Contact Us</h1>
-          <div>
-            <Input placeholder="Name" {...register("name")} />
-            {errors.name?.message && (
-              <p className="ml-1 mt-1 text-xs text-red-400">
-                {errors.name.message}
-              </p>
-            )}
-          </div>
-          <div>
-            <Input type="email" placeholder="Email" {...register("email")} />
-            {errors.email?.message && (
-              <p className="ml-1 mt-1 text-xs text-red-400">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-          <div className="col-span-full">
-            <Textarea rows={5} placeholder="Message" {...register("message")} />
-            {errors.message?.message && (
-              <p className="ml-1 mt-1 text-xs text-red-400">
-                {errors.message.message}
-              </p>
-            )}
+          <h1 className="text-3xl font-bold mb-10">Connect with Us</h1>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <Input placeholder="Name" {...register("name")} />
+              {errors.name?.message && (
+                <p className="ml-1 mt-1 text-xs text-red-400">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <Input type="email" placeholder="Email" {...register("email")} />
+              {errors.email?.message && (
+                <p className="ml-1 mt-1 text-xs text-red-400">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div className="col-span-full">
+              <Textarea
+                rows={5}
+                placeholder="Message"
+                {...register("message")}
+              />
+              {errors.message?.message && (
+                <p className="ml-1 mt-1 text-xs text-red-400">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
           </div>
         </ModalContent>
         <ModalFooter>
           <Button
-            type="submit"
+            type={"submit"}
             disabled={isSubmitting}
-            title={"Submit"}
-            variant={"secondary"}
-          >
-            <span>{isSubmitting ? "Submitting" : "Submit"}</span>
-          </Button>
+            title={isSubmitting ? "Submitting" : "Submit"}
+            variant={"tertiary"}
+            style={{
+              borderWidth: 1,
+              width: "100%",
+              textTransform: "uppercase",
+            }}
+          />
         </ModalFooter>
       </form>
     </ModalBody>

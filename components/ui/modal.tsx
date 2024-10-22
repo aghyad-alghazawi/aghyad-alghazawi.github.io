@@ -16,6 +16,8 @@ import { cn } from "@/lib/utils"
 
 import { Button } from "@/components/ui/button"
 
+import Styles from "@/styles/modules/modal.module.css"
+
 interface ModalContextType {
   open: boolean
   setOpen: (open: boolean) => void
@@ -118,15 +120,16 @@ export const ModalBody = ({
           }}
           exit={{
             opacity: 0,
+            display: "none",
           }}
-          className="fixed glass-morph [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center z-50"
+          className="fixed glass-morph [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center"
         >
           <Overlay />
 
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark relative z-50 flex flex-col flex-1 overflow-hidden",
+              `${Styles["modal-body"]} min-h-[50%] max-h-[90%] md:max-w-[40%] bg-dark z-50 relative flex flex-col flex-1`,
               className
             )}
             initial={{
@@ -158,7 +161,7 @@ export const ModalBody = ({
               transition: "transform 0.1s ease-out",
               backfaceVisibility: "hidden",
               willChange: "transform",
-              boxShadow: "0 10px 10px hsl(var(--dark) / 0.5)",
+              // boxShadow: "0 10px 10px hsl(var(--dark) / 0.5)",
             }}
           >
             <CloseIcon />
@@ -180,7 +183,7 @@ export const ModalContent = ({
   return (
     <div
       className={cn(
-        "flex flex-col flex-1 p-8 md:p-10 overflow-y-scroll",
+        "flex flex-col flex-1 p-8 md:p-10 bg-dark overflow-y-scroll",
         className
       )}
     >
@@ -197,7 +200,7 @@ export const ModalFooter = ({
   className?: string
 }) => {
   return (
-    <div className={cn("flex justify-end p-4 bg-light/5", className)}>
+    <div className={cn("flex justify-end p-4 bg-dark/75", className)}>
       {children}
     </div>
   )
@@ -231,7 +234,7 @@ const CloseIcon = () => {
     <button
       type="button"
       onClick={() => setOpen(false)}
-      className="absolute top-4 right-4 group"
+      className="absolute top-4 right-4 group hover:animate-flicker"
       aria-label="Close modal"
     >
       <X size={24} />

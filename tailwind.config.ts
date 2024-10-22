@@ -13,8 +13,13 @@ const config: Config = {
         light: "hsl(var(--light))",
         dark: "hsl(var(--dark))",
       },
-      animation: {},
-      keyframes: {},
+      animation: { flicker: "flicker 0.5s linear infinite" },
+      keyframes: {
+        flicker: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+      },
       fontFamily: {
         inter: ["var(--font-inter)"],
         monts: ["var(--font-montserrat)"],

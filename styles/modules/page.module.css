@@ -26,7 +26,6 @@
     gap: 1rem;
 
     .text {
-      user-select: none;
       text-shadow: 3px 3px 30px hsl(var(--dark) / 0.5);
 
       & span {

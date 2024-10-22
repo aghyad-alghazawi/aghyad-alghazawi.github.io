@@ -1,0 +1,42 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.modal-body {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem;
+    z-index: -1;
+    background: conic-gradient(
+      from var(--gradient-angle) at 50% 50%,
+      hsl(var(--blue-green) / 1),
+      hsl(var(--royal-purple) / 1),
+      hsl(var(--electric-blue) / 1),
+      hsl(var(--marian-blue) / 1),
+      hsl(var(--amethyst) / 1),
+      hsl(var(--blue-green) / 1)
+    );
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+  }
+
+  &::after {
+    filter: blur(30px);
+    z-index: -1;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}

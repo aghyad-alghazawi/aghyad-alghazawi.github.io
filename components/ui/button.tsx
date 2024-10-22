@@ -6,7 +6,7 @@ import Styles from "@/styles/modules/button.module.css"
 type DefaultProps = JSX.IntrinsicElements["button"]
 
 interface ButtonProps extends DefaultProps {
-  variant?: "primary" | "secondary" | "danger"
+  variant?: "primary" | "secondary" | "tertiary" | "danger"
   size?: "small" | "medium" | "large"
   title: string
   icon?: Icon
