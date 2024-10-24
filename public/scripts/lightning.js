@@ -665,7 +665,7 @@ Point.prototype = {
     DRAG_POINT_MAX_NUM = 5,
     CHILD_NUM = 2,
     LIHTNING_COLOR = [0, 0, 100] // HSL
-  BACKGROUND_COLOR = "transparent"
+  BACKGROUND_COLOR = "black"
 
   // Vars
   var canvas,

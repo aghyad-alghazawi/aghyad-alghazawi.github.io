@@ -2,7 +2,7 @@ import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 
 import { Social } from "@/lib/types"
 
-import SingulartifyLogo from "@/components/ui/singulartify-icon"
+import SingulartifyLogo from "@/components/singulartify-icon"
 
 const LINKS: Social[] = [
   {

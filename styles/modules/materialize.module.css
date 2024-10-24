@@ -7,7 +7,6 @@
     stroke-width: 1;
     stroke-dashoffset: 100%;
     stroke-dasharray: 100%;
-
     animation: draw 1s ease-in-out forwards, fade 2s ease-in-out forwards;
   }
 }
