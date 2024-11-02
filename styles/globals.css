@@ -109,5 +109,6 @@ body {
 
   footer {
     @apply fixed bottom-[5%] right-[10%];
+    @apply mobile:left-[2.5%] mobile:right-[unset];
   }
 }

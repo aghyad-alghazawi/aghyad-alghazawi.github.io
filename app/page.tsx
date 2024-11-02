@@ -108,17 +108,17 @@ export default function Page() {
               <br />
               SINGULARITY */}
             </span>
-            <p className={"text-xl font-inter font-thin mt-10"}>
+            <p className={"text-responsive font-inter font-thin italic mt-10"}>
               With a focus on seamless functionality and design, I thrive in
               bringing complex ideas to life. Let&apos;s collaborate to turn
-              your vision into reality
+              your vision into <span className={"text-light"}>reality!</span>
             </p>
           </div>
           <div className={Styles.action}>
             <Button
               title={"CONTACT"}
               variant={"primary"}
-              size={"large"}
+              size={"responsive"}
               // onClick={() => {
               //   const link = document.createElement("a")
               //   link.href = "mailto://aghyad.alghazawi@gmail.com"
@@ -131,7 +131,7 @@ export default function Page() {
             <Button
               title={"ABOUT ME"}
               variant={"secondary"}
-              size={"large"}
+              size={"responsive"}
               onClick={() => {
                 const link = document.createElement("a")
                 link.href = "/assets/resume.pdf"

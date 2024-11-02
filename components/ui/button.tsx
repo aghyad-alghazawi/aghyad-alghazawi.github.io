@@ -7,7 +7,7 @@ type DefaultProps = JSX.IntrinsicElements["button"]
 
 interface ButtonProps extends DefaultProps {
   variant?: "primary" | "secondary" | "tertiary" | "danger"
-  size?: "small" | "medium" | "large"
+  size?: "small" | "medium" | "large" | "responsive"
   title: string
   icon?: Icon
 }

@@ -78,3 +78,9 @@
   height: 64px;
   font-size: 1.2rem;
 }
+
+.responsive {
+  width: clamp(120px, 10vw + 64px, 184px);
+  height: clamp(40px, 5vw + 32px, 64px);
+  font-size: clamp(0.3rem, 1.1rem, 1.2rem);
+}

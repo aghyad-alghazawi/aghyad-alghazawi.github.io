@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        mobile: { max: "800px" },
+      },
       colors: {
         light: "hsl(var(--light))",
         dark: "hsl(var(--dark))",
@@ -23,6 +26,9 @@ const config: Config = {
       fontFamily: {
         inter: ["var(--font-inter)"],
         monts: ["var(--font-montserrat)"],
+      },
+      fontSize: {
+        responsive: "clamp(0.5rem, 1.2rem, 1.3rem)",
       },
     },
   },

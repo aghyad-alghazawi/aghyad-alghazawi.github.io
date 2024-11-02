@@ -15,7 +15,7 @@ const Footer = () => {
         mirrored: false,
       }}
     >
-      <div className="flex items-center justify-center h-full w-full">
+      <div className="flex items-center justify-center">
         <FloatingDock items={LINKS} />
       </div>
     </IconContext.Provider>
