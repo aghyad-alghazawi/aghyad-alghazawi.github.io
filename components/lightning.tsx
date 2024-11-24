@@ -111,7 +111,7 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
       })
 
       mouseTrailRef.current = trail.filter((point) => point.opacity > 0)
-      requestAnimationFrame(drawLightningTrail)
+      lastAnimationFrameId = requestAnimationFrame(drawLightningTrail) // Assign the ID here
     }
 
     let lastAnimationFrameId: number
@@ -149,7 +149,8 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
       window.removeEventListener("resize", resizeCanvas)
-      if (lastAnimationFrameId) cancelAnimationFrame(lastAnimationFrameId)
+      if (lastAnimationFrameId !== undefined)
+        cancelAnimationFrame(lastAnimationFrameId)
     }
   }, [
     speed,
