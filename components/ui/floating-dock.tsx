@@ -24,7 +24,7 @@ export const FloatingDock = ({
   const mouseX = useMotionValue(Infinity)
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseMove={(e: MouseEvent) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "flex h-16 gap-4 items-end bg-transparent px-4 pb-3",
