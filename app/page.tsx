@@ -10,6 +10,7 @@ import { Aurora } from "@/components/aurora"
 import { Form } from "@/components/form"
 
 import Styles from "@/styles/modules/page.module.css"
+import ShaderBackground from "@/components/shader"
 
 export default function Page() {
   const [showResume, setShowResume] = useState(false)
@@ -25,7 +26,8 @@ export default function Page() {
   return (
     <>
       <section className={Styles.overlay}>
-        <Aurora />
+        {/* <Aurora /> */}
+        <ShaderBackground />
         <div className={"hidden fixed h-full w-full"} />
       </section>
       <section className={Styles.left}>
