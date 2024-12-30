@@ -81,7 +81,10 @@ export const ModalBody = ({
   }, [open])
 
   useEscapeKey(() => setOpen(false))
-  useOutsideClick(modalRef, () => setOpen(false))
+
+  useOutsideClick(modalRef as React.RefObject<HTMLDivElement>, () =>
+    setOpen(false)
+  )
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!modalRef.current) return

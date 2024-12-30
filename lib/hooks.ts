@@ -1,26 +1,22 @@
-import { useEffect } from "react"
+import { RefObject, useEffect } from "react"
 
 // Type for the callback function that takes an event parameter
 type OutsideClickCallback = (event: MouseEvent | TouchEvent) => void
 
 export const useOutsideClick = (
-  ref: React.RefObject<HTMLDivElement>,
-  callback: OutsideClickCallback
+  ref: React.RefObject<HTMLElement>,
+  callback: () => void
 ) => {
   useEffect(() => {
-    const listener = (event: MouseEvent | TouchEvent) => {
-      if (!ref.current || ref.current.contains(event.target as Node)) {
-        return
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback()
       }
-      callback(event)
     }
 
-    document.addEventListener("mousedown", listener)
-    document.addEventListener("touchstart", listener)
-
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", listener)
-      document.removeEventListener("touchstart", listener)
+      document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [ref, callback])
 }
