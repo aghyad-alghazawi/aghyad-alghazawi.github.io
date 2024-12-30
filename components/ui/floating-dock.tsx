@@ -24,7 +24,7 @@ export const FloatingDock = ({
   const mouseX = useMotionValue(Infinity)
   return (
     <motion.div
-      onMouseMove={(e: MouseEvent) => mouseX.set(e.pageX)}
+      onMouseMove={(e: React.MouseEvent) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "flex h-16 gap-4 items-end bg-transparent px-4 pb-3",
@@ -57,8 +57,16 @@ function IconContainer({
   const widthTransform = useTransform(distance, [-150, 0, 150], [40, 60, 40])
   const heightTransform = useTransform(distance, [-150, 0, 150], [40, 60, 40])
 
-  const widthTransformIcon = useTransform(distance, [-150, 0, 150], [32, 48, 32])
-  const heightTransformIcon = useTransform(distance, [-150, 0, 150], [32, 48, 32])
+  const widthTransformIcon = useTransform(
+    distance,
+    [-150, 0, 150],
+    [32, 48, 32]
+  )
+  const heightTransformIcon = useTransform(
+    distance,
+    [-150, 0, 150],
+    [32, 48, 32]
+  )
 
   const width = useSpring(widthTransform, {
     mass: 0.1,
