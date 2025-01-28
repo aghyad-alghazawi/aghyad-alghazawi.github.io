@@ -2,15 +2,17 @@
 
 import React, { useState } from "react"
 
+import { cn } from "@/lib/utils"
+
 import { Button } from "@/components/ui/button"
 import { FlipWords } from "@/components/ui/flip-words"
 import { Materialize } from "@/components/ui/materialize"
 import { useModal } from "@/components/ui/modal"
 import { Aurora } from "@/components/aurora"
 import { Form } from "@/components/form"
+import ShaderBackground from "@/components/shader"
 
 import Styles from "@/styles/modules/page.module.css"
-import ShaderBackground from "@/components/shader"
 
 export default function Page() {
   const [showResume, setShowResume] = useState(false)
@@ -60,6 +62,16 @@ export default function Page() {
             />
           </svg>
         </div>
+        <div className={Styles.avatar}>
+          <div className="hidden mobile:block">
+            <img
+              src="/images/profile-mobile.webp"
+              alt="AA"
+              height={"100%"}
+              width={"100%"}
+            />
+          </div>
+        </div>
         <div className={Styles.layer}>
           <svg
             id={"profile"}
@@ -78,13 +90,13 @@ export default function Page() {
               </clipPath>
             </defs>
             <image
-              className={Styles.profile}
+              // className={"block mobile:hidden"}
               href="/images/profile.webp"
               height={"100%"}
               clipPath="url(#clip-polygon)"
             />
             <path
-              className={Styles.stroke}
+              className={cn(Styles.stroke, "block mobile:hidden")}
               d="M580,0 L610,60 L540,460 L600,520 L620,800 L550,1080"
               fill="none"
               stroke="white"
@@ -110,7 +122,11 @@ export default function Page() {
               <br />
               SINGULARITY */}
             </span>
-            <p className={"text-responsive font-inter font-extralight italic mt-10 drop-shadow-lg"}>
+            <p
+              className={
+                "text-responsive font-inter font-extralight italic mt-10 drop-shadow-lg"
+              }
+            >
               With a focus on seamless functionality and design, I thrive in
               bringing complex ideas to life. Let&apos;s collaborate to turn
               your vision into <span className={"text-light"}>reality!</span>

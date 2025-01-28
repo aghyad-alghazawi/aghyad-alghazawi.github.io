@@ -112,24 +112,19 @@ export const ModalBody = ({
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 0,
-            display: "none",
-          }}
-          className="fixed glass-morph [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, display: "none" }}
+          className="fixed glass-morph [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full flex items-center justify-center p-4 sm:p-6"
         >
           <Overlay />
 
           <motion.div
             ref={modalRef}
             className={cn(
-              `${Styles["modal-body"]} min-h-[50%] max-h-[90%] md:max-w-[40%] z-50 relative flex flex-col flex-1`,
+              `${Styles["modal-body"]} min-h-[200px] w-full max-h-[90vh] 
+              md:max-w-[90%] lg:max-w-[75%] xl:max-w-[40%] 
+              z-50 relative flex flex-col flex-1`,
               className
             )}
             initial={{
@@ -154,14 +149,11 @@ export const ModalBody = ({
               stiffness: 260,
               damping: 15,
             }}
-            // onMouseMove={handleMouseMove}
-            // onMouseLeave={handleMouseLeave}
             style={{
               transformStyle: "preserve-3d",
               transition: "transform 0.1s ease-out",
               backfaceVisibility: "hidden",
               willChange: "transform",
-              // boxShadow: "0 10px 10px hsl(var(--dark) / 0.5)",
             }}
           >
             <CloseIcon />
@@ -183,7 +175,7 @@ export const ModalContent = ({
   return (
     <div
       className={cn(
-        "flex flex-col flex-1 p-8 md:p-10 bg-dark/85 overflow-y-scroll",
+        "flex flex-col flex-1 p-4 sm:p-6 md:p-8 bg-dark/85 overflow-y-auto",
         className
       )}
     >
@@ -200,7 +192,12 @@ export const ModalFooter = ({
   className?: string
 }) => {
   return (
-    <div className={cn("flex justify-end p-4 bg-dark/75", className)}>
+    <div
+      className={cn(
+        "flex flex-col sm:flex-row justify-end gap-2 p-3 sm:p-4 bg-dark/75",
+        className
+      )}
+    >
       {children}
     </div>
   )
