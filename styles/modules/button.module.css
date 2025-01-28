@@ -1,4 +1,5 @@
 .button {
+  position: relative;
   padding: 24px 48px;
   text-align: center;
   justify-content: center;
@@ -30,6 +31,18 @@
   color: hsl(var(--light) / 1);
   background-color: hsl(var(--light) / 0);
   border: 2px solid hsl(var(--light) / 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
 }
 
 .tertiary {
@@ -39,12 +52,28 @@
 }
 
 .button:hover {
-  transform: translateY(-10px);
-
   &.primary {
-    box-shadow: 0 10px 10px hsl(var(--dark) / 0.75);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 10px hsl(var(--dark) / 0.25);
   }
-  &.secondary, &.tertiary {
+  &.secondary {
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--royal-purple) / 1),
+      hsl(var(--electric-blue) / 1),
+      hsl(var(--marian-blue) / 1),
+      hsl(var(--amethyst) / 1),
+      hsl(var(--blue-green) / 1)
+    );
+    background-clip: text;
+    /* color: hsl(var(--dark) / 1); */
+    color: transparent;
+    &::before {
+      background-color: hsl(var(--light) / 1);
+    }
+  }
+  &.secondary,
+  &.tertiary {
     box-shadow: 0 10px 10px hsl(var(--light) / 0.25);
   }
   &.tertiary {

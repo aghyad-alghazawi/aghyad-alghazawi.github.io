@@ -110,7 +110,7 @@ export default function Page() {
               <br />
               SINGULARITY */}
             </span>
-            <p className={"text-responsive font-inter font-thin italic mt-10"}>
+            <p className={"text-responsive font-inter font-extralight italic mt-10 drop-shadow-lg"}>
               With a focus on seamless functionality and design, I thrive in
               bringing complex ideas to life. Let&apos;s collaborate to turn
               your vision into <span className={"text-light"}>reality!</span>

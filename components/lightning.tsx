@@ -24,10 +24,11 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
   segmentRange = [6, 9],
   glowIntensity = 10,
   lineWidthRange = [1, 2],
-  color = "rgba(255, 255, 255, 1)", // default white
+  color = "rgba(255, 255, 255, 1)",
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const mouseTrailRef = useRef<TrailPoint[]>([])
+  const animationFrameRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -38,13 +39,18 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
     const scaleFactor = window.devicePixelRatio || 1
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth * scaleFactor
-      canvas.height = window.innerHeight * scaleFactor
+      const width = window.innerWidth
+      const height = window.innerHeight
+      canvas.width = width * scaleFactor
+      canvas.height = height * scaleFactor
       ctx.scale(scaleFactor, scaleFactor)
     }
 
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
+
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
 
     const generateLightningPath = (
       startX: number,
@@ -54,86 +60,79 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
       segments: number
     ) => {
       const points = [{ x: startX, y: startY }]
+      const deltaX = endX - startX
+      const deltaY = endY - startY
+
       for (let i = 1; i < segments; i++) {
         const t = i / segments
-        const newX =
-          startX +
-          easeInOutQuad(t) * (endX - startX) +
-          (Math.random() - 0.5) * 15
-        const newY =
-          startY +
-          easeInOutQuad(t) * (endY - startY) +
-          (Math.random() - 0.5) * 15
-        points.push({ x: newX, y: newY })
+        points.push({
+          x: startX + easeInOutQuad(t) * deltaX + (Math.random() - 0.5) * 10,
+          y: startY + easeInOutQuad(t) * deltaY + (Math.random() - 0.5) * 10,
+        })
       }
+
       points.push({ x: endX, y: endY })
       return points
     }
 
-    const easeInOutQuad = (t: number) => {
-      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-    }
-
     const drawLightningTrail = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+
       const trail = mouseTrailRef.current
+      for (let i = 0; i < trail.length - 1; i++) {
+        const start = trail[i]
+        const end = trail[i + 1]
 
-      trail.forEach((start, i) => {
-        if (i < trail.length - 1) {
-          const end = trail[i + 1]
-          const segments = Math.max(
-            3,
-            Math.floor(start.initialSegments * start.opacity)
-          )
-          const points = generateLightningPath(
-            start.x,
-            start.y,
-            end.x,
-            end.y,
-            segments
-          )
+        const segments = Math.max(
+          3,
+          Math.floor(start.initialSegments * start.opacity)
+        )
+        const points = generateLightningPath(
+          start.x,
+          start.y,
+          end.x,
+          end.y,
+          segments
+        )
 
-          ctx.beginPath()
-          ctx.moveTo(points[0].x, points[0].y)
-          points.forEach((point) => ctx.lineTo(point.x, point.y))
+        ctx.beginPath()
+        ctx.moveTo(points[0].x, points[0].y)
+        for (const point of points) ctx.lineTo(point.x, point.y)
 
-          ctx.shadowBlur = glowIntensity
-          ctx.shadowColor = color
-          ctx.strokeStyle = color.replace(/, [^,]+\)$/, `, ${start.opacity})`)
-          ctx.lineWidth = Math.max(
-            lineWidthRange[0],
-            lineWidthRange[1] * start.opacity
-          )
-          ctx.stroke()
+        ctx.shadowBlur = glowIntensity
+        ctx.shadowColor = color
+        ctx.strokeStyle = color.replace(/, [^,]+\)$/, `, ${start.opacity})`)
+        ctx.lineWidth = Math.max(
+          lineWidthRange[0],
+          lineWidthRange[1] * start.opacity
+        )
+        ctx.stroke()
 
-          start.opacity -= speed
-        }
-      })
+        start.opacity -= speed
+      }
 
       mouseTrailRef.current = trail.filter((point) => point.opacity > 0)
-      lastAnimationFrameId = requestAnimationFrame(drawLightningTrail) // Assign the ID here
+
+      animationFrameRef.current = requestAnimationFrame(drawLightningTrail)
     }
 
-    let lastAnimationFrameId: number
     const handleMouseMove = (e: MouseEvent) => {
       const trail = mouseTrailRef.current
-      const lastPoint = trail.length > 0 ? trail[trail.length - 1] : null
+      const lastPoint = trail[trail.length - 1]
 
-      const trailDistance = 30 // fixed trail distance for performance
-
+      const trailDistanceSquared = 900 // 30^2 for better performance
       if (
         !lastPoint ||
-        Math.hypot(lastPoint.x - e.clientX, lastPoint.y - e.clientY) >
-          trailDistance
+        (lastPoint.x - e.clientX) ** 2 + (lastPoint.y - e.clientY) ** 2 >
+          trailDistanceSquared
       ) {
         trail.push({
           x: e.clientX,
           y: e.clientY,
-          opacity: 1.0,
-          initialSegments: Math.floor(
+          opacity: 1,
+          initialSegments:
             Math.random() * (segmentRange[1] - segmentRange[0]) +
-              segmentRange[0]
-          ),
+            segmentRange[0],
         })
 
         if (trail.length > maxTrailPoints) {
@@ -143,14 +142,13 @@ export const LightningTrail: React.FC<LightningTrailProps> = ({
     }
 
     window.addEventListener("mousemove", handleMouseMove)
-
     drawLightningTrail()
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
       window.removeEventListener("resize", resizeCanvas)
-      if (lastAnimationFrameId !== undefined)
-        cancelAnimationFrame(lastAnimationFrameId)
+      if (animationFrameRef.current !== undefined)
+        cancelAnimationFrame(animationFrameRef.current)
     }
   }, [
     speed,
