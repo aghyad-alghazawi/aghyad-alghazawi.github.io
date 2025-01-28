@@ -42,6 +42,7 @@
 html,
 body {
   max-width: 100dvw;
+  height: 100dvh;
   overflow: hidden;
 
   @apply font-inter;
@@ -98,12 +99,12 @@ body {
   main {
     @apply flex justify-between items-center;
     @apply h-svh w-svw;
+    
 
     section {
-      @apply relative;
+      @apply relative h-full;
       @apply flex justify-center items-center;
-      @apply h-full;
-      @apply pointer-events-none;
+      @apply pointer-events-none mobile:overflow-y-hidden;
     }
   }
 

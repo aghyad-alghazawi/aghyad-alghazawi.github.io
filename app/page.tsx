@@ -26,8 +26,8 @@ export default function Page() {
   return (
     <>
       <section className={Styles.overlay}>
-        {/* <Aurora /> */}
-        <ShaderBackground />
+        <Aurora />
+        {/* <ShaderBackground /> */}
         <div className={"hidden fixed h-full w-full"} />
       </section>
       <section className={Styles.left}>

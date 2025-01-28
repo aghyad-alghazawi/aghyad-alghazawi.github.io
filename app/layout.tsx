@@ -55,6 +55,10 @@ export default function RootLayout({
     <html lang={"en"}>
       <head>
         <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta
           name="google-site-verification"
           content="Wfi-L480X8UbwCH846R0XmkJcVpN5gIAVeZ_4uM1s2o"
         />
