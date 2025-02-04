@@ -74,7 +74,7 @@ const Scene: React.FC = () => {
   )
 }
 
-const ShaderBackground: React.FC = () => {
+const Shader: React.FC = () => {
   return (
     <div className="absolute top-0 left-0 w-full h-full">
       <Suspense fallback={<div>Loading...</div>}>
@@ -95,4 +95,4 @@ const ShaderBackground: React.FC = () => {
   )
 }
 
-export default ShaderBackground
+export { Shader }

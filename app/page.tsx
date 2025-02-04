@@ -10,7 +10,7 @@ import { Materialize } from "@/components/ui/materialize"
 import { useModal } from "@/components/ui/modal"
 import { Aurora } from "@/components/aurora"
 import { Form } from "@/components/form"
-import ShaderBackground from "@/components/shader"
+import { Shader } from "@/components/shader"
 
 import Styles from "@/styles/modules/page.module.css"
 
@@ -28,8 +28,8 @@ export default function Page() {
   return (
     <>
       <section className={Styles.overlay}>
-        <Aurora />
-        {/* <ShaderBackground /> */}
+        <Aurora  />
+        {/* <Shader /> */}
         <div className={"hidden fixed h-full w-full"} />
       </section>
       <section className={Styles.left}>
