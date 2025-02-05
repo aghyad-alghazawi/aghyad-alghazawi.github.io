@@ -16,6 +16,7 @@ import Styles from "@/styles/modules/page.module.css"
 
 export default function Page() {
   const [showResume, setShowResume] = useState(false)
+  const [expandLeft, setExpandLeft] = useState(false)
   const { open, setOpen } = useModal()
 
   const spacer = "\u2000"
@@ -28,11 +29,11 @@ export default function Page() {
   return (
     <>
       <section className={Styles.overlay}>
-        <Aurora  />
-        {/* <Shader /> */}
+        {/* <Aurora /> */}
+        <Shader />
         <div className={"hidden fixed h-full w-full"} />
       </section>
-      <section className={Styles.left}>
+      <section className={cn(Styles.left, expandLeft && Styles.expanded)}>
         <div className={Styles.layer}>
           <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
             <polygon
@@ -72,7 +73,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className={Styles.layer}>
+        <div className={cn(Styles.layer, expandLeft && "")}>
           <svg
             id={"profile"}
             viewBox="0 0 820 1080"
@@ -150,15 +151,7 @@ export default function Page() {
               title={"ABOUT ME"}
               variant={"secondary"}
               size={"responsive"}
-              onClick={() => {
-                const link = document.createElement("a")
-                link.href = "/assets/resume.pdf"
-                link.download = "Aghyad's Resume.pdf"
-                document.body.appendChild(link)
-                link.click()
-                document.body.removeChild(link)
-              }}
-              // onClick={() => setShowResume(!showResume)}
+              onClick={() => setExpandLeft(!expandLeft)}
             />
           </div>
           {showResume && (
@@ -170,7 +163,7 @@ export default function Page() {
           )}
         </div>
       </section>
-      <section className={Styles.right}>
+      <section className={cn(Styles.right, expandLeft && Styles.expanded)}>
         <div className={Styles.layer}>
           <svg viewBox="-20 0 200 1080" xmlns="http://www.w3.org/2000/svg">
             <polygon
