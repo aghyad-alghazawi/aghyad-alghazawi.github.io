@@ -1,13 +1,9 @@
-"use client";
+"use client"
 
-import React, { Suspense, useRef } from "react";
-import { Canvas, extend, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import { ShaderMaterial } from "three";
-
-
-
-
+import React, { Suspense, useRef } from "react"
+import { Canvas, extend, useFrame } from "@react-three/fiber"
+import * as THREE from "three"
+import { ShaderMaterial } from "three"
 
 const fragmentShader = `
 vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
