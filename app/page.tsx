@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { FlipWords } from "@/components/ui/flip-words"
 import { Materialize } from "@/components/ui/materialize"
 import { useModal } from "@/components/ui/modal"
-import { Aurora } from "@/components/aurora"
 import { Form } from "@/components/form"
 import { Shader } from "@/components/shader"
 
@@ -29,7 +28,6 @@ export default function Page() {
   return (
     <>
       <section className={Styles.overlay}>
-        {/* <Aurora /> */}
         <Shader />
         <div className={"hidden fixed h-full w-full"} />
       </section>

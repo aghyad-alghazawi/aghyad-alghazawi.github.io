@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    turbo: { rules: { "*.glsl": { loaders: ["raw-loader"], as: "raw" } } },
     // reactCompiler: true,
   },
   basePath: "",
