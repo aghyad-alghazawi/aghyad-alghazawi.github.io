@@ -11,16 +11,17 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.glsl$/,
-      type: "asset/source",
-      use: {
-        loader: "raw-loader",
-      },
+      test: /\.(glsl|vs|fs|vert|frag)$/,
+      exclude: /node_modules/,
+      use: ["raw-loader", "glslify-loader"],
     })
     return config
   },
   basePath: "",
   output: "export",
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig

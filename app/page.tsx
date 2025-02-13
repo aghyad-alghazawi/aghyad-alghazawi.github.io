@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 
@@ -63,11 +64,11 @@ export default function Page() {
         </div>
         <div className={Styles.avatar}>
           <div className="hidden mobile:block">
-            <img
+            <Image
               src="/images/profile-mobile.webp"
               alt="AA"
-              height={"100%"}
-              width={"100%"}
+              width={200}
+              height={200}
             />
           </div>
         </div>

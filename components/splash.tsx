@@ -76,11 +76,11 @@ const Splash = ({
     if (!canvas) return // Guard canvas early
 
     // Pointer and config setup
-    let pointers: Pointer[] = [pointerPrototype()]
+    const pointers: Pointer[] = [pointerPrototype()]
 
     // All these are guaranteed numbers due to destructuring defaults
     // So we cast them to remove TS warnings:
-    let config = {
+    const config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
       DYE_RESOLUTION: DYE_RESOLUTION!,
       CAPTURE_RESOLUTION: CAPTURE_RESOLUTION!,
@@ -157,11 +157,11 @@ const Splash = ({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0
+        : (halfFloat && (halfFloat as OES_texture_half_float).HALF_FLOAT_OES) || 0
 
-      let formatRGBA: any
-      let formatRG: any
-      let formatR: any
+      let formatRGBA: { internalFormat: number; format: number } | null
+      let formatRG: { internalFormat: number; format: number } | null
+      let formatR: { internalFormat: number; format: number } | null
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -317,7 +317,7 @@ const Splash = ({
     }
 
     function getUniforms(program: WebGLProgram) {
-      let uniforms: Record<string, WebGLUniformLocation | null> = {}
+      const uniforms: Record<string, WebGLUniformLocation | null> = {}
       const uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS)
       for (let i = 0; i < uniformCount; i++) {
         const uniformInfo = gl.getActiveUniform(program, i)
@@ -907,6 +907,8 @@ const Splash = ({
       const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST
       gl.disable(gl.BLEND)
 
+      if (!rgba || !rg || !r) return
+
       if (!dye) {
         dye = createDoubleFBO(
           dyeRes.width,
@@ -985,7 +987,7 @@ const Splash = ({
       const w = gl.drawingBufferWidth
       const h = gl.drawingBufferHeight
       const aspectRatio = w / h
-      let aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio
+      const aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio
       const min = Math.round(resolution)
       const max = Math.round(resolution * aspect)
       if (w > h) {
