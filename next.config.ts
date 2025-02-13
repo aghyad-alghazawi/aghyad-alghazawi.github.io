@@ -1,4 +1,3 @@
-import { config } from "process"
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
@@ -14,9 +13,9 @@ const nextConfig: NextConfig = {
     config.module.rules.push({
       test: /\.glsl$/,
       type: "asset/source",
-      // use: {
-      //   loader: "raw-loader",
-      // },
+      use: {
+        loader: "raw-loader",
+      },
     })
     return config
   },
