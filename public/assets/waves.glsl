@@ -110,7 +110,7 @@ void main() {
         royalPurple + vec3(n * 0.1),
         n + mix(  
             mix(blueGreen, electricBlue, uv.y + 0.5),
-            mix(amethyst, marianBlue, uv.x + 0.5),
+            mix(mix(amethyst, marianBlue, uv.x + 0.5), marianBlue, uv.x + 0.5),
             clamp(-.1, .9, c1 - c2)
         ),
         clamp(0., 1., c1 + c2)

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { Suspense, useRef } from "react"
-import fragmentShader from "@/shaders/waves.glsl"
+import fragmentShader from "@/public/assets/waves.glsl"
 import { Canvas, useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 import { ShaderMaterial } from "three"

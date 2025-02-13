@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     title: process.env.TITLE,
     description: process.env.DESCRIPTION,
     images: ["/images/thumbnail.webp"],
+    creator: process.env.AUTHOR,
   },
 }
 

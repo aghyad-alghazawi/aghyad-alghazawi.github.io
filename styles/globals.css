@@ -99,7 +99,6 @@ body {
   main {
     @apply flex justify-between items-center;
     @apply h-svh w-svw;
-    
 
     section {
       @apply relative h-full;

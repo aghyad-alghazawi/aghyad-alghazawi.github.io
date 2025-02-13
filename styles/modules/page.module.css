@@ -148,8 +148,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: 124px;
-        height: 124px;
+        width: 200px;
+        height: 200px;
 
         &::before,
         &::after {
@@ -232,6 +232,7 @@
       align-items: start;
 
       .text {
+        margin-top: 10rem;
         text-shadow: 3px 3px 30px hsl(var(--dark) / 0.5);
         text-align: start;
 
@@ -253,12 +254,12 @@
         width: 100%;
         pointer-events: all;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
         margin-bottom: 10vh;
 
         & button {
-          width: 100%;
+          flex-grow: 1;
           font-size: small;
         }
       }
