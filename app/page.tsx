@@ -11,6 +11,7 @@ import { Materialize } from "@/components/ui/materialize"
 import { useModal } from "@/components/ui/modal"
 import { Form } from "@/components/form"
 import { Shader } from "@/components/shader"
+import { Component as Stats } from "@/components/stats"
 
 import Styles from "@/styles/modules/page.module.css"
 
@@ -72,7 +73,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className={cn(Styles.layer, expandLeft && "")}>
+        <div className={cn(Styles.layer, expandLeft && "hidden")}>
           <svg
             id={"profile"}
             viewBox="0 0 820 1080"
@@ -104,6 +105,20 @@ export default function Page() {
             />
           </svg>
         </div>
+        {expandLeft && (
+          <div className={(cn(Styles.stats), "")}>
+            <Stats />
+            <div className="text-content font-inter font-light">
+              <h2 className="text-xl font-medium mb-4">About Me</h2>
+              <p className="font-light leading-relaxed">
+                I specialize in creating seamless digital experiences through
+                innovative full-stack development. With expertise in modern web
+                technologies and a keen eye for design, I transform complex
+                challenges into elegant solutions.
+              </p>
+            </div>
+          </div>
+        )}
       </section>
       <section className={Styles.center}>
         <div className={Styles.hero}>

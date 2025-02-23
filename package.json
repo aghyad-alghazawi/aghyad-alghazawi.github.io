@@ -20,10 +20,12 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "12.4.1",
+    "lucide-react": "^0.475.0",
     "next": "15.1.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.54.2",
+    "recharts": "^2.15.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.173.0",
@@ -40,12 +42,12 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-compiler": "19.0.0-beta-b2e8e9c-20241220",
+    "glslify-loader": "^2.0.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
-    "tailwindcss": "^3.4.17",
-    "glslify-loader": "^2.0.0",
     "raw-loader": "^4.0.2",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
   }
 }
