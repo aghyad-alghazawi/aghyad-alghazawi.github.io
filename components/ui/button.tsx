@@ -24,7 +24,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {title}
         {Icon && (
           <span className={Styles.icon}>
-            <Icon size={24} />
+            <Icon size={24} weight="bold" />
           </span>
         )}
       </button>

@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
+import { DownloadSimple } from "@phosphor-icons/react"
 
 import { cn } from "@/lib/utils"
 
@@ -16,10 +17,6 @@ import { Component as Stats } from "@/components/stats"
 import Styles from "@/styles/modules/page.module.css"
 
 export default function Page() {
-  const [showResume, setShowResume] = useState(false)
-  const [expandLeft, setExpandLeft] = useState(false)
-  const { open, setOpen } = useModal()
-
   const spacer = "\u2000"
   const words = [
     `SOFTWARE${spacer}ENGINEER`,
@@ -33,7 +30,7 @@ export default function Page() {
         <Shader />
         <div className={"hidden fixed h-full w-full"} />
       </section>
-      <section className={cn(Styles.left, expandLeft && Styles.expanded)}>
+      <section className={cn(Styles.left)}>
         <div className={Styles.layer}>
           <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
             <polygon
@@ -73,7 +70,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className={cn(Styles.layer, expandLeft && "hidden")}>
+        <div className={cn(Styles.layer)}>
           <svg
             id={"profile"}
             viewBox="0 0 820 1080"
@@ -105,20 +102,6 @@ export default function Page() {
             />
           </svg>
         </div>
-        {expandLeft && (
-          <div className={(cn(Styles.stats), "")}>
-            <Stats />
-            <div className="text-content font-inter font-light">
-              <h2 className="text-xl font-medium mb-4">About Me</h2>
-              <p className="font-light leading-relaxed">
-                I specialize in creating seamless digital experiences through
-                innovative full-stack development. With expertise in modern web
-                technologies and a keen eye for design, I transform complex
-                challenges into elegant solutions.
-              </p>
-            </div>
-          </div>
-        )}
       </section>
       <section className={Styles.center}>
         <div className={Styles.hero}>
@@ -152,32 +135,28 @@ export default function Page() {
               title={"CONTACT"}
               variant={"primary"}
               size={"responsive"}
-              // onClick={() => {
-              //   const link = document.createElement("a")
-              //   link.href = "mailto://aghyad.alghazawi@gmail.com"
-              //   document.body.appendChild(link)
-              //   link.click()
-              //   document.body.removeChild(link)
-              // }}
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                window.location.href = "mailto:aghyad.alghazawi@gmail.com"
+              }}
             />
             <Button
-              title={"ABOUT ME"}
+              title={"CV"}
+              icon={DownloadSimple}
               variant={"secondary"}
               size={"responsive"}
-              onClick={() => setExpandLeft(!expandLeft)}
+              onClick={() => {
+                const link = document.createElement("a")
+                link.href = "/assets/resume.pdf"
+                link.download = "Aghyad's Resume.pdf"
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+              }}
             />
           </div>
-          {showResume && (
-            <iframe
-              src="/assets/resume.pdf"
-              className="fixed z-50 pointer-events-auto mt-4 w-full h-[80vh] border-2 border-light rounded-lg shadow-lg"
-              title="Resume"
-            />
-          )}
         </div>
       </section>
-      <section className={cn(Styles.right, expandLeft && Styles.expanded)}>
+      <section className={cn(Styles.right)}>
         <div className={Styles.layer}>
           <svg viewBox="-20 0 200 1080" xmlns="http://www.w3.org/2000/svg">
             <polygon
@@ -208,9 +187,9 @@ export default function Page() {
           </svg>
         </div>
       </section>
-      <section className={Styles.modal}>
+      {/* <section className={Styles.modal}>
         <Form />
-      </section>
+      </section> */}
     </>
   )
 }

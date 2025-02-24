@@ -10,10 +10,9 @@
   white-space: nowrap;
   transition: all 0.3s ease;
 
-  @apply font-monts font-semibold tracking-wider;
   font-family: var(--font-montserrat);
-  font-style: semibold;
-  
+  font-weight: 600;
+  letter-spacing: 0.05em;
 
   .icon {
     display: flex;
@@ -35,7 +34,7 @@
   background-color: hsl(var(--light) / 0);
   border: 2px solid hsl(var(--light) / 1);
 
-  &::before {
+  /* &::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -45,7 +44,7 @@
     right: 0;
     background-color: transparent;
     transition: background-color 0.3s ease;
-  }
+  } */
 }
 
 .tertiary {
@@ -60,6 +59,10 @@
     box-shadow: 0 10px 10px hsl(var(--dark) / 0.25);
   }
   &.secondary {
+    background-color: hsl(var(--light) / 1);
+    color: hsl(var(--dark) / 1);
+  }
+  /* &.secondary {
     background-image: linear-gradient(
       to right,
       hsl(var(--royal-purple) / 1),
@@ -69,12 +72,11 @@
       hsl(var(--blue-green) / 1)
     );
     background-clip: text;
-    /* color: hsl(var(--dark) / 1); */
     color: transparent;
     &::before {
       background-color: hsl(var(--light) / 1);
     }
-  }
+  } */
   &.secondary,
   &.tertiary {
     box-shadow: 0 10px 10px hsl(var(--light) / 0.25);
@@ -86,6 +88,22 @@
 
 .button:active {
   scale: 0.95;
+
+  /* &.secondary {
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--royal-purple) / 1),
+      hsl(var(--electric-blue) / 1),
+      hsl(var(--marian-blue) / 1),
+      hsl(var(--amethyst) / 1),
+      hsl(var(--blue-green) / 1)
+    );
+    background-clip: text;
+    color: transparent;
+    &::before {
+      background-color: hsl(var(--light) / 1);
+    }
+  } */
 }
 
 .button:disabled {
@@ -115,4 +133,8 @@
   width: clamp(120px, 10vw + 64px, 184px);
   height: clamp(40px, 5vw + 32px, 64px);
   font-size: clamp(0.3rem, 1.1rem, 1.2rem);
+}
+
+.icon {
+  color: inherit;
 }
