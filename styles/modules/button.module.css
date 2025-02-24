@@ -11,6 +11,9 @@
   transition: all 0.3s ease;
 
   @apply font-monts font-semibold tracking-wider;
+  font-family: var(--font-montserrat);
+  font-style: semibold;
+  
 
   .icon {
     display: flex;
