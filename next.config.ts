@@ -1,5 +1,7 @@
 import type { NextConfig } from "next"
 
+const withRspack = require("@next/plugin-rspack")
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   eslint: {
@@ -16,4 +18,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withRspack(nextConfig)

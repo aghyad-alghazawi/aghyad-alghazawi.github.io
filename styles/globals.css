@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../tailwind.config.ts';
 
@@ -17,6 +17,17 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+    @apply scrollbar-hidden;
+  }
+}
+
+@utility scrollbar-hidden {
+  & {
+    scrollbar-width: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -26,6 +37,16 @@
 
 @utility clip-hex {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@utility perspective-800 {
+  perspective: 800px;
 }
 
 @utility glass-morph {
