@@ -23,10 +23,10 @@ export const metadata: Metadata = {
   authors: [{ name: process.env.AUTHOR, url: `https://${process.env.DOMAIN}` }],
   metadataBase: new URL(`https://${process.env.DOMAIN}`),
   openGraph: {
-    title: process.env.HEADER,
+    title: process.env.TITLE,
     description: process.env.DESCRIPTION,
     url: `https://${process.env.DOMAIN}`,
-    siteName: process.env.TITLE,
+    siteName: process.env.HEADER,
     images: [
       {
         url: "/images/thumbnail.webp",
