@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   authors: [{ name: process.env.AUTHOR, url: `https://${process.env.DOMAIN}` }],
   metadataBase: new URL(`https://${process.env.DOMAIN}`),
   openGraph: {
-    title: process.env.TITLE,
+    title: process.env.HEADER,
     description: process.env.DESCRIPTION,
     url: `https://${process.env.DOMAIN}`,
     siteName: process.env.TITLE,
