@@ -9,7 +9,7 @@ import React, {
   useState,
 } from "react"
 import { X } from "@phosphor-icons/react"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 
 import { useEscapeKey, useOutsideClick } from "@/lib/hooks"
 import { cn } from "@/lib/utils"
