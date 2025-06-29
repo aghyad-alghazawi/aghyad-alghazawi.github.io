@@ -63,7 +63,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="Wfi-L480X8UbwCH846R0XmkJcVpN5gIAVeZ_4uM1s2o"
         />
-        <link rel="preload" href="/images/profile.webp" as="image"></link>
+        <link rel="preload" href="/images/profile.webp" as="image"/>
         <script type={"text/javascript"} src={"/scripts/simplex.js"} async />
       </head>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>

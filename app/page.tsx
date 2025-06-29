@@ -33,6 +33,7 @@ export default function Page() {
       <section className={cn(Styles.left)}>
         <div className={Styles.layer}>
           <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="0,0 779.335,0 799.901,82.588 649.446,389.647 767.429,505.059 618.056,785.647 820,1080 0,1080"
               fill="#06010c"
@@ -43,6 +44,7 @@ export default function Page() {
         </div>
         <div className={Styles.layer}>
           <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="0,0 737.373,0 660.563,147.176 764,414 674.901,618.353 751.71,724.235 737.373,1080 0,1080"
               fill="#06010c"
@@ -53,6 +55,7 @@ export default function Page() {
         </div>
         <div className={Styles.layer}>
           <svg viewBox="0 0 820 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="0,0 676.425,0 717.464,140.824 590.791,353.647 732,640.588 585.6,796.471 676.425,1080 0,1080"
               fill="#06010c"
@@ -76,6 +79,7 @@ export default function Page() {
             viewBox="0 0 820 1080"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <title>Profile image decorative polygon</title>
             <defs>
               <filter id="blur-strong">
                 <feGaussianBlur stdDeviation="6" in="SourceGraphic" />
@@ -159,6 +163,7 @@ export default function Page() {
       <section className={cn(Styles.right)}>
         <div className={Styles.layer}>
           <svg viewBox="-20 0 200 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="45.535,0 200,0 200,1080 81.245,1080 21,966 66.667,576 14.359,495 92.308,338 0,281 45.535,0"
               fill="#06010c"
@@ -169,6 +174,7 @@ export default function Page() {
         </div>
         <div className={Styles.layer}>
           <svg viewBox="-20 0 200 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="67.709,0 200,0 200,1080 51.062,1080 68,910 25,758 123.503,626 35.479,380 70.060,195 67.709,0"
               fill="#06010c"
@@ -179,6 +185,7 @@ export default function Page() {
         </div>
         <div className={Styles.layer}>
           <svg viewBox="-20 0 200 1080" xmlns="http://www.w3.org/2000/svg">
+            <title>Background decorative polygon</title>
             <polygon
               points="128.519,0 200,0 200,1080 77.884,1080 135.855,959 67.763,642 154.605,457 50,191 128.519,0"
               fill="#06010c"

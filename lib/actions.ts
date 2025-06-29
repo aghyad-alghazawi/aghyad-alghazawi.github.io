@@ -1,7 +1,7 @@
 "use server"
 
 import { redirect } from "next/navigation"
-import { z } from "zod"
+import type { z } from "zod"
 
 import { ContactFormSchema } from "@/lib/schemas"
 

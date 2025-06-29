@@ -1,6 +1,6 @@
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 
-import { Social } from "@/lib/types"
+import type { Social } from "@/lib/types"
 
 import SingulartifyLogo from "@/components/icons/singulartify"
 

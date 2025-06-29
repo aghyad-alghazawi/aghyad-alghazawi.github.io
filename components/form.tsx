@@ -2,8 +2,8 @@
 
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { SubmitHandler, useForm } from "react-hook-form"
-import { z } from "zod"
+import { type SubmitHandler, useForm } from "react-hook-form"
+import type { z } from "zod"
 
 // import { formAction } from "@/lib/actions"
 import { ContactFormSchema } from "@/lib/schemas"
@@ -54,9 +54,8 @@ export function Form() {
         return {
           error: error.message || "An error occurred. Please try again.",
         }
-      } else {
-        return { error: "An unexpected error occurred. Please try again." }
       }
+      return { error: "An unexpected error occurred. Please try again." }
     }
   }
 

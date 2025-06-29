@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "homepage": "https://aghyad-alghazawi.github.io",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
@@ -11,46 +11,48 @@
     "format": "prettier --write \"app/**/*.{ts,tsx,css,json}\""
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.0.1",
-    "@phosphor-icons/react": "^2.1.7",
-    "@react-three/drei": "^10.0.6",
-    "@react-three/fiber": "9.1.2",
-    "babel-plugin-react-compiler": "19.0.0-beta-e993439-20250405",
+    "@hookform/resolvers": "^5.1.1",
+    "@phosphor-icons/react": "^2.1.10",
+    "@react-three/drei": "^10.3.0",
+    "@react-three/fiber": "9.1.4",
+    "babel-plugin-react-compiler": "19.1.0-rc.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "12.6.5",
-    "lucide-react": "^0.488.0",
-    "next": "15.3.0",
+    "motion": "12.19.2",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-hook-form": "^7.55.0",
-    "recharts": "^2.15.2",
-    "tailwind-merge": "^3.2.0",
+    "react-hook-form": "^7.59.0",
+    "recharts": "^3.0.2",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.175.0",
-    "zod": "^3.24.2"
+    "three": "^0.177.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@tailwindcss/postcss": "^4.1.3",
-    "@types/node": "^22.14.1",
-    "@types/react": "^19.1.1",
-    "@types/react-dom": "^19.1.2",
-    "@types/three": "^0.175.0",
-    "eslint": "^9.24.0",
-    "eslint-config-next": "15.3.0",
-    "eslint-config-prettier": "^10.1.2",
-    "eslint-plugin-prettier": "^5.2.6",
-    "eslint-plugin-react-compiler": "19.0.0-beta-e993439-20250405",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.3",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/node": "^24.0.7",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/three": "^0.177.0",
+    "eslint": "^9.30.0",
+    "eslint-config-next": "15.3.4",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-react-compiler": "19.1.0-rc.2",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "sharp"
+      "@tailwindcss/oxide",
+      "sharp",
+      "unrs-resolver"
     ]
   }
 }
