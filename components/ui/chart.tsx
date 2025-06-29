@@ -72,11 +72,8 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     ([, config]) => config.theme || config.color
   )
 
-  if (!colorConfig.length) {
-    return null
-  }
-
   const styleContent = React.useMemo(() => {
+    if (!colorConfig.length) return null;
     return Object.entries(THEMES)
       .map(
         ([theme, prefix]) => `
@@ -95,6 +92,10 @@ ${colorConfig
       )
       .join("\n");
   }, [id, colorConfig]);
+
+  if (!colorConfig.length || !styleContent) {
+    return null;
+  }
 
   return (
     <style>
